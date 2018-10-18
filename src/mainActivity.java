@@ -7,16 +7,11 @@ public class mainActivity {
         JFrame frame = new JFrame("Survey");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(new loginScreen());
-        frame.setSize(500, 600);
+        frame.setSize(300, 600);
         frame.setResizable(false);
-        Color darkBlue = new Color(146, 144, 145);
-        frame.setBackground(darkBlue);
         center(frame);
         frame.setVisible(true);
     }
-
-
-
     public static void center(JFrame obj) {
         //get screen resolution
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
