@@ -42,6 +42,8 @@ public class loginScreen extends JPanel {
         );
         hGroup.addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                 .addComponent(buttonLogin)
+        );
+        hGroup.addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                 .addComponent(buttonSignUp)
         );
         layout.setHorizontalGroup(hGroup);
