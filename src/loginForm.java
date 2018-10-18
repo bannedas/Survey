@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class loginForm {
 
@@ -9,6 +12,31 @@ public class loginForm {
     private JButton signUpButton;
     private JTextField textField1;
     private JPasswordField passwordField1;
+
+
+    public loginForm() {
+        loginButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String username = textField1.getText();
+                String password = passwordField1.getText();
+                try {
+                    if (loginCheck.loginCheck(username, password)) {
+                        JOptionPane.showMessageDialog(panelLogin, "Success!", "Welcome", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(panelLogin, "Incorrect login or password", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+            }
+        });
+        signUpButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(panelLogin, "not yet", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+    }
 
 
     private void createUIComponents() {
