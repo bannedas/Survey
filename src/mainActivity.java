@@ -31,6 +31,7 @@ public class mainActivity {
     }
     public static void main(String[] args) {
     	// Starts main activity method
+    	// In a neat way
         new mainActivity();
     }
 }
