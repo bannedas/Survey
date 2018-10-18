@@ -9,12 +9,12 @@ public class loginCheck {
         try {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                if (line.equals(username)) {
+                String[] parts = line.split(" "); //split by spaces
+                if (parts[0].equals(username) && parts[1].equals(password)) {
                     return true;
-                } else {
-                    return false;
                 }
             }
+            return false;
         } catch (FileNotFoundException ee) {
             ee.printStackTrace();
         } catch (IOException ee) {
