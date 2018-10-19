@@ -13,9 +13,6 @@ public class appFrame { //main class method
         frame.getContentPane().setBackground(new Color(146, 144, 145));
         frame.setVisible(true);
         center(frame); //calls method center (puts app in center of the screen when opened
-
-
-
     }
     public static void center(JFrame obj) {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); //get screen resolution
