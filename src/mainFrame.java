@@ -13,11 +13,9 @@ public class mainFrame extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(300, 600);
         setResizable(false);
-        getContentPane().setBackground(new Color(146, 144, 145)); //aet frame color
-
+        center();
         viewPanel = new JPanel(new BorderLayout());
         add(viewPanel, BorderLayout.CENTER);
-
         showView(new loginForm(this).panelLogin);
     }
 
@@ -26,5 +24,14 @@ public class mainFrame extends JFrame {
         viewPanel.add(panel, BorderLayout.CENTER);
         viewPanel.revalidate();
         viewPanel.repaint();
+    }
+
+    public void center() {
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); //get screen resolution
+        int w = getSize().width; //assign resolution to w,h
+        int h = getSize().height;
+        int x = (dim.width - w) / 2; //divide by two, get middle points
+        int y = (dim.height - h) / 2;
+        setLocation(x, y); //set to middle
     }
 }
