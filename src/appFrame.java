@@ -4,7 +4,7 @@ import java.awt.*;
 public class appFrame { //main class method
     public static void mainFrame() { //creates JFrame
         JFrame frame = new JFrame("Survey"); //make new JFrame and set title "Survey"
-        frame.add(new loginForm().panelLogin, BorderLayout.CENTER); //show login panel and set it in center of JFrame
+        //frame.add(new loginForm().panelLogin, BorderLayout.CENTER); //show login panel and set it in center of JFrame
         //frame.add(new mainScreen().panel1, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //what to do when X pressed
         frame.setSize(300, 600); //set JFrame size (app size)

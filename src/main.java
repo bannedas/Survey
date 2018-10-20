@@ -1,5 +1,9 @@
+import javax.swing.*;
+
 public class main {
     public static void main(String[] args) {
-        appFrame.mainFrame();  //calls appFrame class and method mainFrame inside
+        SwingUtilities.invokeLater(() -> {
+            new mainFrame("Title").setVisible(true);
+        });
     }
 }

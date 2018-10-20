@@ -14,7 +14,12 @@ public class loginForm {
     private JPanel logoPanel;
     private JPanel panelLogin2;
 
-    public loginForm() {
+    final private mainFrame owner;
+
+    public loginForm(mainFrame owner) {
+        super();
+        this.owner = owner;
+
         textField1.setBorder(BorderFactory.createEmptyBorder()); //removes borders of text field
         passwordField1.setBorder(BorderFactory.createEmptyBorder()); //removes borders of password field
 
@@ -29,7 +34,10 @@ public class loginForm {
                 } else {
                     try { //same as explained in loginCheck or signupWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
                         if (loginCheck.loginCheck(username, password)) { //calling loginCheck.class method loginCheck.
-                            JOptionPane.showMessageDialog(panelLogin, "Welcome " + username + "!", "Login", JOptionPane.INFORMATION_MESSAGE); //if return true popup
+
+                            SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner).panel1));
+
+                            //JOptionPane.showMessageDialog(panelLogin, "Welcome " + username + "!", "Login", JOptionPane.INFORMATION_MESSAGE); //if return true popup
                         } else {
                             JOptionPane.showMessageDialog(panelLogin, "Incorrect login or password", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
                         }
@@ -72,7 +80,9 @@ public class loginForm {
                 }
             }
         });
+
     }
+
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
