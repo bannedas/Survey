@@ -13,18 +13,18 @@ public class loginForm {
     private JCheckBox showPasswordCheckBox;
 
     public loginForm() {
-        textField1.setBorder(BorderFactory.createEmptyBorder());
-        passwordField1.setBorder(BorderFactory.createEmptyBorder());
+        textField1.setBorder(BorderFactory.createEmptyBorder()); //removes borders of text field
+        passwordField1.setBorder(BorderFactory.createEmptyBorder()); //removes borders of password field
 
         //--------------------login button ---------------------
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) { //what to do when button is pressed
                 String username = textField1.getText(); //get username from textfield
-                String password = passwordField1.getText(); //get password from passwordfield
+                String password = String.valueOf(passwordField1.getPassword()); //get password from passwordfield
                 if (username.equals("") || password.equals("")) {
                     JOptionPane.showMessageDialog(panelLogin, "Type in your username and password", "Error", JOptionPane.ERROR_MESSAGE); // error message
                 } else {
-                    try { //java rules require to do this
+                    try { //same as explained in loginCheck or signupWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
                         if (loginCheck.loginCheck(username, password)) { //calling loginCheck.class method loginCheck.
                             JOptionPane.showMessageDialog(panelLogin, "Welcome " + username + "!", "Login", JOptionPane.INFORMATION_MESSAGE); //if return true popup
                         } else {
@@ -40,7 +40,7 @@ public class loginForm {
         signUpButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String username = textField1.getText(); //get username from textfield
-                String password = passwordField1.getText(); //get password from passwordfield
+                String password = String.valueOf(passwordField1.getPassword());  //get password from passwordfield
                 if (username.equals("") || password.equals("")) {
                     JOptionPane.showMessageDialog(panelLogin, "Type in your preferred username and password", "Error", JOptionPane.ERROR_MESSAGE); // error message
                 } else {
