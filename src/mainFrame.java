@@ -2,28 +2,34 @@ import javax.swing.*;
 import java.awt.*;
 
 public class mainFrame extends JFrame {
-    private JPanel viewPanel;
+    private JPanel viewPanel; //makes panel inside JFrame
+    /* simple explanation
+    a car - JFrame
+    car seat - viewPanel
+    driver - sits inside viewPanel and can easily be replaced with a command
+    driver is the one that we will be changing and it is the one that you see when you open app
+     */
 
-    public mainFrame(String title) {
-        super(title);
-        createGUI();
+    public mainFrame() {
+        setTitle("Survey"); //set app title
+        createGUI(); //call method createGUI
     }
 
     private void createGUI() {
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(300, 600);
-        setResizable(false);
-        center();
-        viewPanel = new JPanel(new BorderLayout());
-        add(viewPanel, BorderLayout.CENTER);
-        showView(new loginForm(this).panelLogin);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //what to do when X pressed
+        setSize(300, 600); //app size
+        setResizable(false); //make app not resizable
+        center(); //call method center
+        viewPanel = new JPanel(new BorderLayout()); //set layout mode for viewPanel
+        add(viewPanel, BorderLayout.CENTER); //add viewPanel to center of app
+        showView(new loginForm(this).panelLogin); //call method showView
     }
 
     public void showView(JPanel panel) {
-        viewPanel.removeAll();
-        viewPanel.add(panel, BorderLayout.CENTER);
-        viewPanel.revalidate();
-        viewPanel.repaint();
+        viewPanel.removeAll(); //remove all panels
+        viewPanel.add(panel, BorderLayout.CENTER); //add panel that is called ex. showView(loginPanel)
+        viewPanel.revalidate(); //tell java to clean up the screen
+        viewPanel.repaint(); //paint new panel on the screen
     }
 
     public void center() {

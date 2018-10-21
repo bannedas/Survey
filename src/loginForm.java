@@ -60,7 +60,7 @@ public class loginForm {
                             JOptionPane.showMessageDialog(panelLogin, "This username is already used!", "Error", JOptionPane.ERROR_MESSAGE); // error message
                         } else {
                             if (signupWriter.signupWriter(username, password)) { //call class signupWriter, method signupWriter
-                                JOptionPane.showMessageDialog(panelLogin, "Welcome " + username + "!", "Sign Up", JOptionPane.INFORMATION_MESSAGE); //if return true popup
+                                JOptionPane.showMessageDialog(panelLogin, "Welcome " + username + "!\nYou can Login now", "Sign Up", JOptionPane.INFORMATION_MESSAGE); //if return true popup
                             }
                         }
                     } catch (IOException e2) {
