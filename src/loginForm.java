@@ -50,9 +50,11 @@ public class loginForm {
             }
         });
         //--------------------sign up button ---------------------
+
         signUpButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String username = textField1.getText(); //get username from textfield
+                SwingUtilities.invokeLater(() -> owner.showView(new signUpPage(owner).panelSignUp));
+             /*   String username = textField1.getText(); //get username from textfield
                 String password = String.valueOf(passwordField1.getPassword());  //get password from passwordfield
                 if (username.equals("") || password.equals("")) {
                     JOptionPane.showMessageDialog(panelLogin, "Type in your preferred username and password", "Error", JOptionPane.ERROR_MESSAGE); // error message
@@ -72,7 +74,7 @@ public class loginForm {
                     } catch (IOException e2) {
                         e2.printStackTrace();
                     }
-                }
+                }*/
             }
         });
         //-----------------show password check box----------------

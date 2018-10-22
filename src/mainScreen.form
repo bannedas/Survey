@@ -101,12 +101,12 @@
                   <text value="1 survey available"/>
                 </properties>
               </component>
-              <component id="923f5" class="javax.swing.JButton" binding="clickHereToStartButton" default-binding="true">
+              <component id="923f5" class="javax.swing.JButton" binding="spendYourPointsButton" default-binding="true">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Click here to start"/>
+                  <text value="Spend Your Points!"/>
                 </properties>
               </component>
             </children>

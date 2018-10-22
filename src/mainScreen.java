@@ -1,12 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class mainScreen {
     public JPanel panel1;
     private JButton logoutButton;
     private JButton shopButton;
     private JPanel buttonPanel;
-    private JButton clickHereToStartButton;
+    private JButton spendYourPointsButton;
 
     final private mainFrame owner;
 
@@ -15,6 +17,12 @@ public class mainScreen {
 
         this.owner = owner;
         createGUI();
+        spendYourPointsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(() -> owner.showView(new rewardPage(owner).rewardPanel));
+            }
+        });
     }
 
     private void createGUI() {
@@ -71,9 +79,9 @@ public class mainScreen {
         final JLabel label3 = new JLabel();
         label3.setText("1 survey available");
         panel4.add(label3, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        clickHereToStartButton = new JButton();
-        clickHereToStartButton.setText("Click here to start");
-        panel4.add(clickHereToStartButton, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        spendYourPointsButton = new JButton();
+        spendYourPointsButton.setText("Click here to start");
+        panel4.add(spendYourPointsButton, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**
