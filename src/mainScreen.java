@@ -9,6 +9,7 @@ public class mainScreen {
     private JButton shopButton;
     private JPanel buttonPanel;
     private JButton spendYourPointsButton;
+    private JButton availableSurveysButton;
 
     final private mainFrame owner;
 
@@ -21,6 +22,12 @@ public class mainScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SwingUtilities.invokeLater(() -> owner.showView(new rewardPage(owner).rewardPanel));
+            }
+        });
+        availableSurveysButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(() -> owner.showView(new surveyPage(owner).surveyPanel));
             }
         });
     }

@@ -13,8 +13,8 @@ public class signupWriter {
         FileWriter fileWriter = new FileWriter(database, true); //initialize filereader (this one opens files)
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter); //initialize bufferedreader (this one can read files)
 
-        bufferedWriter.write(username + " " + password + " " + firsName + " " + gender); //write in database (username SPACE password)
-                                                             //later we will add points or something else
+        bufferedWriter.write(username + " " + password + " " + firsName + " " + gender + 0); //write in database (username SPACE password etc.)
+
         bufferedWriter.newLine(); //write \n
         bufferedWriter.close(); //close writer
         return true; //class returns false if all lines are read and no match found
