@@ -1,3 +1,5 @@
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -56,11 +58,13 @@ public class loginForm {
                     JOptionPane.showMessageDialog(panelLogin, "Type in your preferred username and password", "Error", JOptionPane.ERROR_MESSAGE); // error message
                 } else {
                     try { //java rules require to do this
-                        if (loginCheck.loginCheck(username, password)) { //calling loginCheck.class method loginCheck. (checking all database lines if username exists
-                            JOptionPane.showMessageDialog(panelLogin, "This username is already used!", "Error", JOptionPane.ERROR_MESSAGE); // error message
-                        } else {
-                            if (signupWriter.signupWriter(username, password)) { //call class signupWriter, method signupWriter
-                                JOptionPane.showMessageDialog(panelLogin, "Welcome " + username + "!\nYou can Login now", "Sign Up", JOptionPane.INFORMATION_MESSAGE); //if return true popup
+                        if (username.matches("[a-zA-Z]+") && password.matches("[a-zA-Z]+")) {
+                            if (loginCheck.loginCheck(username, password)) { //calling loginCheck.class method loginCheck. (checking all database lines if username exists
+                                JOptionPane.showMessageDialog(panelLogin, "This username is already used!", "Error", JOptionPane.ERROR_MESSAGE); // error message
+                            } else {
+                                if (signupWriter.signupWriter(username, password)) { //call class signupWriter, method signupWriter
+                                    JOptionPane.showMessageDialog(panelLogin, "Welcome " + username + "!\nYou can Login now", "Sign Up", JOptionPane.INFORMATION_MESSAGE); //if return true popup
+                                }
                             }
                         }
                     } catch (IOException e2) {
