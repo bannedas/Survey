@@ -28,15 +28,17 @@ public class signUpPage {
                 SwingUtilities.invokeLater(() -> owner.showView(new signUpPage(owner).panelSignUp));
                 String username = textField1.getText(); //get username from textfield
                 String password = String.valueOf(passwordField1.getPassword());  //get password from passwordfield
-                if (username.equals("") || password.equals("")) {
-                    JOptionPane.showMessageDialog(panelSignUp, "Type in your preferred username and password", "Error", JOptionPane.ERROR_MESSAGE); // error message
+                String firstName = firstNameField.getText(); // get first name from firstNameField
+                String gender = (String)genderDropdown.getSelectedItem(); // get gender from dropdown list
+                if (username.equals("") || password.equals("")|| firstName.equals("")) {
+                    JOptionPane.showMessageDialog(panelSignUp, "Please fill in all fields", "Error", JOptionPane.ERROR_MESSAGE); // error message
                 } else {
                     try { //java rules require to do this
                         if (username.matches("[a-zA-Z]+") && password.matches("[a-zA-Z]+")) {
                             if (loginCheck.loginCheck(username, password)) { //calling loginCheck.class method loginCheck. (checking all database lines if username exists
                                 JOptionPane.showMessageDialog(panelSignUp, "This username is already used!", "Error", JOptionPane.ERROR_MESSAGE); // error message
                             } else {
-                                if (signupWriter.signupWriter(username, password)) { //call class signupWriter, method signupWriter
+                                if (signupWriter.signupWriter(username, password, firstName, gender)) { //call class signupWriter, method signupWriter
                                     JOptionPane.showMessageDialog(panelSignUp, "Welcome " + username + "!\nYou can Login now", "Sign Up", JOptionPane.INFORMATION_MESSAGE); //if return true popup
                                 }
                             }

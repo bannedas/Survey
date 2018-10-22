@@ -1,7 +1,7 @@
 import java.io.*;
 
 public class signupWriter {
-    public static boolean signupWriter(String username, String password) throws IOException {
+    public static boolean signupWriter(String username, String password, String firsName, String gender) throws IOException {
         /* IOException = unexpected cases when writing/reading files
         it is required by JAVA and this is the best explanation i found on google:
         (throws IOException) specifies that the method may going to throws IOException and insist
@@ -13,7 +13,7 @@ public class signupWriter {
         FileWriter fileWriter = new FileWriter(database, true); //initialize filereader (this one opens files)
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter); //initialize bufferedreader (this one can read files)
 
-        bufferedWriter.write(username + " " + password); //write in database (username SPACE password)
+        bufferedWriter.write(username + " " + password + " " + firsName + " " + gender); //write in database (username SPACE password)
                                                              //later we will add points or something else
         bufferedWriter.newLine(); //write \n
         bufferedWriter.close(); //close writer

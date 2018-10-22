@@ -75,7 +75,7 @@
             </constraints>
             <properties>
               <foreground color="-16777216"/>
-              <text value="AAU email"/>
+              <text value="Username"/>
             </properties>
           </component>
           <component id="8d175" class="javax.swing.JPasswordField" binding="passwordField1" default-binding="true">
