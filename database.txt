@@ -1,3 +1,2 @@
-as as
-User pass Name Truck
-aa a a Male0
+a b c Male 0
+a a a Male 0

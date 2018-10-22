@@ -1,7 +1,7 @@
 import java.io.*;
 
 public class signupWriter {
-    public static boolean signupWriter(String username, String password, String firsName, String gender) throws IOException {
+    public static boolean signupWriter(String username, String password, String firstName, String gender) throws IOException {
         /* IOException = unexpected cases when writing/reading files
         it is required by JAVA and this is the best explanation i found on google:
         (throws IOException) specifies that the method may going to throws IOException and insist
@@ -9,11 +9,12 @@ public class signupWriter {
         towards this regarding handling or again throwing back. */
 
         String database = "database.txt"; //database location (right now in the same folder as an app
+        int points = 0; //start with 0 points
 
         FileWriter fileWriter = new FileWriter(database, true); //initialize filereader (this one opens files)
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter); //initialize bufferedreader (this one can read files)
 
-        bufferedWriter.write(username + " " + password + " " + firsName + " " + gender + 0); //write in database (username SPACE password etc.)
+        bufferedWriter.write(username + " " + password + " " + firstName + " " + gender + " " + points); //write in database (username SPACE password etc.)
 
         bufferedWriter.newLine(); //write \n
         bufferedWriter.close(); //close writer

@@ -12,9 +12,9 @@ public class loginCheck {
 
         File database = new File (dir);
         if(database.createNewFile()) {
-            System.out.print("Happy");
+            System.out.println("database not found, created new");
         } else {
-            System.out.print("NOT HAPPY");
+            System.out.println("database found, reading");
         }
 
         FileReader fileReader = new FileReader(dir); //initialize filereader (this one opens files)
