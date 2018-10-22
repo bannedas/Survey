@@ -40,6 +40,7 @@ public class signUpPage {
                             } else {
                                 if (signupWriter.signupWriter(username, password, firstName, gender)) { //call class signupWriter, method signupWriter
                                     JOptionPane.showMessageDialog(panelSignUp, "Welcome " + username + "!\nYou can Login now", "Sign Up", JOptionPane.INFORMATION_MESSAGE); //if return true popup
+                                    SwingUtilities.invokeLater(() -> owner.showView(new loginForm(owner).panelLogin));
                                 }
                             }
                         } else {
