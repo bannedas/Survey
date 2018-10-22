@@ -66,6 +66,8 @@ public class loginForm {
                                     JOptionPane.showMessageDialog(panelLogin, "Welcome " + username + "!\nYou can Login now", "Sign Up", JOptionPane.INFORMATION_MESSAGE); //if return true popup
                                 }
                             }
+                        } else {
+                            JOptionPane.showMessageDialog(panelLogin, "Username and Password can only contain letters!", "Error", JOptionPane.ERROR_MESSAGE); // error message
                         }
                     } catch (IOException e2) {
                         e2.printStackTrace();
