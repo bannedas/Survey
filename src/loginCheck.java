@@ -24,7 +24,7 @@ public class loginCheck {
 
         while ((line = bufferedReader.readLine()) != null) { //while (read line is not equal empty line)
             String[] parts = line.split(" "); //split by spaces
-            if (parts[0].equals(username) && parts[1].equals(password)) { //parts[0] = username, parts[1] = password
+            if (parts[0].equals(username) && decryptPassword.Encrypt(parts[1]).equals(password)) { //parts[0] = username, parts[1] = password
                 return true; //class returns true and breaks while loop, so class stops
             }
         }

@@ -19,6 +19,11 @@ public class mainScreen {
 
         this.owner = owner;
 
+        //String name = String.format("Hi %s", loginForm.getName());
+        //String points = String.format("You have %d points!", getPoints());
+        //nameLabel.setText(username.getName());
+        //pointsLabel.setText(points);
+
         spendYourPointsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
