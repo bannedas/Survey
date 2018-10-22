@@ -8,9 +8,16 @@ public class loginCheck {
         the compiler that the block which is calling this method needs some special attention
         towards this regarding handling or again throwing back. */
 
-        String database = "database.txt"; //database location (right now in the same folder as an app
+        String dir = "database.txt"; //database location (right now in the same folder as an app
 
-        FileReader fileReader = new FileReader(database); //initialize filereader (this one opens files)
+        File database = new File (dir);
+        if(database.createNewFile()) {
+            System.out.print("Happy");
+        } else {
+            System.out.print("NOT HAPPY");
+        }
+
+        FileReader fileReader = new FileReader(dir); //initialize filereader (this one opens files)
         BufferedReader bufferedReader = new BufferedReader(fileReader); //initialize bufferedreader (this one can read files)
 
         String line; //initialize string (later we assign it to readLine so it becomes 1 line of database
