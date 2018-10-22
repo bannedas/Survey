@@ -31,7 +31,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
-              <text value="Donate to charity"/>
+              <text value="Donate to charity 1 point"/>
             </properties>
           </component>
           <component id="afb5b" class="javax.swing.JButton" binding="a10BookDiscountAtButton" default-binding="true">
@@ -44,7 +44,7 @@
             <properties>
               <background color="-1"/>
               <foreground color="-13487566"/>
-              <text value="10% book discount at library"/>
+              <text value="10% book discount at library 10 points"/>
             </properties>
           </component>
           <component id="afd77" class="javax.swing.JButton" binding="gymMembershipButton" default-binding="true">
@@ -56,7 +56,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
-              <text value="Gym membership"/>
+              <text value="Gym membership 20 points"/>
             </properties>
           </component>
           <component id="565da" class="javax.swing.JButton" binding="coffeeButton" default-binding="true">
@@ -68,7 +68,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
-              <text value="Coffee"/>
+              <text value="Coffee 5 points"/>
             </properties>
           </component>
         </children>

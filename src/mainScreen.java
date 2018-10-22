@@ -23,6 +23,8 @@ public class mainScreen {
         //String points = String.format("You have %d points!", getPoints());
         //nameLabel.setText(username.getName());
         //pointsLabel.setText(points);
+        nameLabel.setText("Welcome back");
+        pointsLabel.setText("You have %d points.");
 
         spendYourPointsButton.addActionListener(new ActionListener() {
             @Override
