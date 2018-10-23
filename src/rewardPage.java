@@ -14,23 +14,24 @@ public class rewardPage {
     private JButton backButton;
 
     final private mainFrame owner;
+    private String user;
 
-    public rewardPage(mainFrame owner) {
+    public rewardPage(mainFrame owner, String user) {
         super();
-
+        this.user = user;
         this.owner = owner;
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner).panel1));
+                SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner,user).panel1));
             }
         });
         donateToCharityButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if (pointSystem.pointSystem("rich", -1)) {
-                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner).panel1));
+                    if (pointSystem.pointSystem(user, -1)) {
+                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner,user).panel1));
                     } else {
                         JOptionPane.showMessageDialog(rewardPanel, "You dont have enough points for this item", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
                     }
@@ -43,8 +44,8 @@ public class rewardPage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if (pointSystem.pointSystem("rich", -10)) {
-                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner).panel1));
+                    if (pointSystem.pointSystem(user, -10)) {
+                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner,user).panel1));
                     } else {
                         JOptionPane.showMessageDialog(rewardPanel, "You dont have enough points for this item", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
                     }
@@ -57,8 +58,8 @@ public class rewardPage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if (pointSystem.pointSystem("rich", -20)) {
-                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner).panel1));
+                    if (pointSystem.pointSystem(user, -20)) {
+                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner,user).panel1));
                     } else {
                         JOptionPane.showMessageDialog(rewardPanel, "You dont have enough points for Gym!", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
                     }
@@ -71,8 +72,8 @@ public class rewardPage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if (pointSystem.pointSystem("rich", -5)) {
-                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner).panel1));
+                    if (pointSystem.pointSystem(user, -5)) {
+                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner,user).panel1));
                     } else {
                         JOptionPane.showMessageDialog(rewardPanel, "You dont have enough points for Coffee!", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
                     }

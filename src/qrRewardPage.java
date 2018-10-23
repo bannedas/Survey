@@ -10,17 +10,18 @@ public class qrRewardPage {
     private JLabel showThisQRCodeLabel;
 
     final private mainFrame owner;
+    private String user;
 
-    public qrRewardPage(mainFrame owner) {
+    public qrRewardPage(mainFrame owner, String user) {
         super();
-
+        this.user = user;
         this.owner = owner;
 
 
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new rewardPage(owner).rewardPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new rewardPage(owner, user).rewardPanel));
             }
         });
     }

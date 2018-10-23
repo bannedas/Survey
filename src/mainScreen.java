@@ -12,30 +12,32 @@ public class mainScreen {
     private JLabel nameLabel;
     private JLabel pointsLabel;
 
+
     final private mainFrame owner;
+    private String user;
 
-    public mainScreen(mainFrame owner) {
+    public mainScreen(mainFrame owner, String user) {
         super();
-
+        this.user = user;
         this.owner = owner;
 
         //String name = String.format("Hi %s", loginForm.getName());
         //String points = String.format("You have %d points!", getPoints());
         //nameLabel.setText(username.getName());
         //pointsLabel.setText(points);
-//        nameLabel.setText("Welcome back");
+        nameLabel.setText(user);
 //        pointsLabel.setText("You have %d points.");
 
         spendYourPointsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new rewardPage(owner).rewardPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new rewardPage(owner,user).rewardPanel));
             }
         });
         availableSurveysButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new surveyPage(owner).surveyPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new surveyPage(owner,user).surveyPanel));
             }
         });
         logoutButton.addActionListener(new ActionListener() {

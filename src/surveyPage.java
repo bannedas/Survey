@@ -10,12 +10,12 @@ public class surveyPage {
     private JButton libraryButton;
     private JButton backButton;
 
-
     final private mainFrame owner;
+    private String user;
 
-    public surveyPage(mainFrame owner) {
+    public surveyPage(mainFrame owner, String user) {
         super();
-
+        this.user = user;
         this.owner = owner;
         canteenButton.addActionListener(new ActionListener() {
             @Override
@@ -38,7 +38,7 @@ public class surveyPage {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner).panel1));
+                SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner,user).panel1));
             }
         });
     }
