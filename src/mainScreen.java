@@ -56,6 +56,12 @@ public class mainScreen {
                 SwingUtilities.invokeLater(() -> owner.showView(new loginForm(owner).panelLogin));
             }
         });
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(() -> owner.showView(new helpPage(owner,user).panel1));
+            }
+        });
     }
 
 

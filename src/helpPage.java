@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class helpPage {
-    private JPanel panel1;
+    public JPanel panel1;
     private JButton backButton;
 
     final private mainFrame owner;

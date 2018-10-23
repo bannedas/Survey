@@ -31,18 +31,31 @@ public class signUpPage {
                 String password = String.valueOf(passwordField1.getPassword());  //get password from passwordfield
                 String firstName = firstNameField.getText(); // get first name from firstNameField
                 String gender = (String) genderDropdown.getSelectedItem(); // get gender from dropdown list
+
+
+
                 if (username.equals("") || password.equals("") || firstName.equals("")) {
                     JOptionPane.showMessageDialog(panelSignUp, "Please fill in all fields", "Error", JOptionPane.ERROR_MESSAGE); // error message
                 } else {
                     try { //java rules require to do this
                         if (!username.contains(" ") && !password.contains(" ") && !firstName.contains(" ")) {
-                            if (loginCheck.loginCheck(username, password)) { //calling loginCheck.class method loginCheck. (checking all database lines if username exists
-                                JOptionPane.showMessageDialog(panelSignUp, "This username is already used!", "Error", JOptionPane.ERROR_MESSAGE); // error message
-                            } else {
-                                if (signupWriter.signupWriter(username, password, firstName, gender)) { //call class signupWriter, method signupWriter
-                                    JOptionPane.showMessageDialog(panelSignUp, "Welcome " + username + "!\nYou can Login now", "Sign Up", JOptionPane.INFORMATION_MESSAGE); //if return true popup
-                                    SwingUtilities.invokeLater(() -> owner.showView(new loginForm(owner).panelLogin));
+                            if (username.length()>15) {
+                                System.out.println(username.substring(username.length()-15).toLowerCase());
+
+                                if ((username.substring(username.length()-15).toLowerCase().equals("@student.aau.dk"))) {
+                                    if (loginCheck.loginCheck(username, password)) { //calling loginCheck.class method loginCheck. (checking all database lines if username exists
+                                        JOptionPane.showMessageDialog(panelSignUp, "An account already exists with this email!", "Error", JOptionPane.ERROR_MESSAGE); // error message
+                                    } else {
+                                        if (signupWriter.signupWriter(username, password, firstName, gender)) { //call class signupWriter, method signupWriter
+                                            JOptionPane.showMessageDialog(panelSignUp, "Welcome " + username + "!\nYou can Login now", "Sign Up", JOptionPane.INFORMATION_MESSAGE); //if return true popup
+                                            SwingUtilities.invokeLater(() -> owner.showView(new loginForm(owner).panelLogin));
+                                        }
+                                    }
+                                } else {
+                                    JOptionPane.showMessageDialog(panelSignUp, "You must use an AAU e-mail address!", "Error", JOptionPane.ERROR_MESSAGE); // error message
                                 }
+                            } else {
+                                JOptionPane.showMessageDialog(panelSignUp, "You must use an AAU e-mail address!", "Error", JOptionPane.ERROR_MESSAGE); // error message
                             }
                         } else {
                             JOptionPane.showMessageDialog(panelSignUp, "Fields can not contain spaces!", "Error", JOptionPane.ERROR_MESSAGE); // error message

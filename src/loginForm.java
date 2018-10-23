@@ -76,7 +76,7 @@ public class loginForm {
                     String username = textField1.getText(); //get username from textfield
                     String password = String.valueOf(passwordField1.getPassword()); //get password from passwordfield
                     if (username.equals("") || password.equals("")) {
-                        JOptionPane.showMessageDialog(panelLogin, "Type in your username and password", "Error", JOptionPane.ERROR_MESSAGE); // error message if no username and/or password found in fields
+                        JOptionPane.showMessageDialog(panelLogin, "Type in your AAu mail and password", "Error", JOptionPane.ERROR_MESSAGE); // error message if no username and/or password found in fields
                         textField1.requestFocus();
                     } else {
                         try { //same as explained in loginCheck or signupWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
@@ -86,7 +86,7 @@ public class loginForm {
 
                                 //JOptionPane.showMessageDialog(panelLogin, "Welcome " + username + "!", "Login", JOptionPane.INFORMATION_MESSAGE); //if return true popup
                             } else {
-                                JOptionPane.showMessageDialog(panelLogin, "Incorrect login or password", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
+                                JOptionPane.showMessageDialog(panelLogin, "Incorrect e-mail or password", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
                                 textField1.requestFocus();
                             }
                         } catch (IOException e1) {
