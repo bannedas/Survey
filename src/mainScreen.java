@@ -12,6 +12,7 @@ public class mainScreen {
     private JButton availableSurveysButton;
     private JLabel nameLabel;
     private JLabel pointsLabel;
+    private JButton button1;
 
 
     final private mainFrame owner;
