@@ -35,7 +35,7 @@ public class signUpPage {
                     JOptionPane.showMessageDialog(panelSignUp, "Please fill in all fields", "Error", JOptionPane.ERROR_MESSAGE); // error message
                 } else {
                     try { //java rules require to do this
-                        if (username.matches("[a-zA-Z]+") && password.matches("[a-zA-Z]+")) {
+                        if (!username.contains(" ") && !password.contains(" ") && !firstName.contains(" ")) {
                             if (loginCheck.loginCheck(username, password)) { //calling loginCheck.class method loginCheck. (checking all database lines if username exists
                                 JOptionPane.showMessageDialog(panelSignUp, "This username is already used!", "Error", JOptionPane.ERROR_MESSAGE); // error message
                             } else {
@@ -45,7 +45,7 @@ public class signUpPage {
                                 }
                             }
                         } else {
-                            JOptionPane.showMessageDialog(panelSignUp, "Username and Password can only contain letters!", "Error", JOptionPane.ERROR_MESSAGE); // error message
+                            JOptionPane.showMessageDialog(panelSignUp, "Fields can not contain spaces!", "Error", JOptionPane.ERROR_MESSAGE); // error message
                         }
                     } catch (IOException e2) {
                         e2.printStackTrace();

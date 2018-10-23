@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class mainScreen {
     public JPanel panel1;
@@ -21,12 +22,20 @@ public class mainScreen {
         this.user = user;
         this.owner = owner;
 
-        //String name = String.format("Hi %s", loginForm.getName());
-        //String points = String.format("You have %d points!", getPoints());
-        //nameLabel.setText(username.getName());
-        //pointsLabel.setText(points);
-        nameLabel.setText(user);
-//        pointsLabel.setText("You have %d points.");
+        String name = null;
+        try {
+            name = String.format("Hi %s", getInfo.getInfo(user,"name"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String points = null;
+        try {
+            points = String.format("You have %s points!", getInfo.getInfo(user,"points"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        pointsLabel.setText(points);
+        nameLabel.setText(name);
 
         spendYourPointsButton.addActionListener(new ActionListener() {
             @Override

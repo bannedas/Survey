@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class getInfo {
-    public String getInfo(String user, String info) throws IOException {
+    public static String getInfo(String user, String info) throws IOException {
         String[] parts;
         switch (info) {
             case "name":
@@ -17,7 +17,7 @@ public class getInfo {
         }
         return user;
     }
-    private String readDatabase(String user) throws IOException {
+    private static String readDatabase(String user) throws IOException {
 
         String dir = "database.txt"; //database location (right now in the same folder as an app
         FileReader fileReader = new FileReader(dir); //initialize filereader (this one opens files)
@@ -31,6 +31,7 @@ public class getInfo {
                 return line; //class returns true and breaks while loop, so class stops
             }
         }
+    return user;
     }
 
 }

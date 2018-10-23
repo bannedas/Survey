@@ -12,14 +12,23 @@ public class rewardPage {
     private JButton donateToCharityButton;
     private JPanel backPanel;
     private JButton backButton;
+    private JLabel informationLabel;
 
     final private mainFrame owner;
     private String user;
+
 
     public rewardPage(mainFrame owner, String user) {
         super();
         this.user = user;
         this.owner = owner;
+
+        try {
+            informationLabel.setText(String.format("%s you currently have %s points",getInfo.getInfo(user,"name"),getInfo.getInfo(user,"points")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
