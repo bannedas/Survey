@@ -24,7 +24,7 @@ public class rewardPage {
         this.owner = owner;
 
         try {
-            informationLabel.setText(String.format("%s you currently have %s points",getInfo.getInfo(user,"name"),getInfo.getInfo(user,"points")));
+            informationLabel.setText(String.format("%s you currently have %s points", getInfo.getInfo(user, "name"), getInfo.getInfo(user, "points")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -32,7 +32,7 @@ public class rewardPage {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner,user).panel1));
+                SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner, user).panel1));
             }
         });
         donateToCharityButton.addActionListener(new ActionListener() {
@@ -40,7 +40,7 @@ public class rewardPage {
             public void actionPerformed(ActionEvent e) {
                 try {
                     if (pointSystem.pointSystem(user, -1)) {
-                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner,user).panel1));
+                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner, user).panel1));
                     } else {
                         JOptionPane.showMessageDialog(rewardPanel, "You dont have enough points for this item", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
                     }
@@ -54,7 +54,7 @@ public class rewardPage {
             public void actionPerformed(ActionEvent e) {
                 try {
                     if (pointSystem.pointSystem(user, -10)) {
-                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner,user).panel1));
+                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner, user).panel1));
                     } else {
                         JOptionPane.showMessageDialog(rewardPanel, "You dont have enough points for this item", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
                     }
@@ -68,7 +68,7 @@ public class rewardPage {
             public void actionPerformed(ActionEvent e) {
                 try {
                     if (pointSystem.pointSystem(user, -20)) {
-                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner,user).panel1));
+                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner, user).panel1));
                     } else {
                         JOptionPane.showMessageDialog(rewardPanel, "You dont have enough points for Gym!", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
                     }
@@ -82,7 +82,7 @@ public class rewardPage {
             public void actionPerformed(ActionEvent e) {
                 try {
                     if (pointSystem.pointSystem(user, -5)) {
-                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner,user).panel1));
+                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner, user).panel1));
                     } else {
                         JOptionPane.showMessageDialog(rewardPanel, "You dont have enough points for Coffee!", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
                     }
@@ -116,26 +116,29 @@ public class rewardPage {
         rewardPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         rewardPanel.setBackground(new Color(-7171951));
         final JPanel panel1 = new JPanel();
-        panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(4, 1, new Insets(0, 0, 0, 0), -1, -1));
+        panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(5, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel1.setBackground(new Color(-7171951));
         rewardPanel.add(panel1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, new Dimension(-1, 550), null, 0, false));
         donateToCharityButton = new JButton();
         donateToCharityButton.setBackground(new Color(-1));
         donateToCharityButton.setText("Donate to charity 1 point");
-        panel1.add(donateToCharityButton, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(200, 50), new Dimension(200, 50), 0, false));
+        panel1.add(donateToCharityButton, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(200, 50), new Dimension(200, 50), 0, false));
         a10BookDiscountAtButton = new JButton();
         a10BookDiscountAtButton.setBackground(new Color(-1));
         a10BookDiscountAtButton.setForeground(new Color(-13487566));
         a10BookDiscountAtButton.setText("10% book discount at library 10 points");
-        panel1.add(a10BookDiscountAtButton, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(200, 50), new Dimension(200, 50), 0, false));
+        panel1.add(a10BookDiscountAtButton, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(200, 50), new Dimension(200, 50), 0, false));
         gymMembershipButton = new JButton();
         gymMembershipButton.setBackground(new Color(-1));
         gymMembershipButton.setText("Gym membership 20 points");
-        panel1.add(gymMembershipButton, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(200, 50), new Dimension(200, 50), 0, false));
+        panel1.add(gymMembershipButton, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(200, 50), new Dimension(200, 50), 0, false));
         coffeeButton = new JButton();
         coffeeButton.setBackground(new Color(-1));
         coffeeButton.setText("Coffee 5 points");
-        panel1.add(coffeeButton, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(200, 50), new Dimension(200, 50), 0, false));
+        panel1.add(coffeeButton, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(200, 50), new Dimension(200, 50), 0, false));
+        informationLabel = new JLabel();
+        informationLabel.setText("Label");
+        panel1.add(informationLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         backPanel = new JPanel();
         backPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         backPanel.setBackground(new Color(-7171951));

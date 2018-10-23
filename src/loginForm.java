@@ -38,7 +38,7 @@ public class loginForm {
                     try { //same as explained in loginCheck or signupWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
                         if (loginCheck.loginCheck(username, password)) { //calling loginCheck.class method loginCheck.
 
-                            SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner,username).panel1));
+                            SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner, username).panel1));
 
                             //JOptionPane.showMessageDialog(panelLogin, "Welcome " + username + "!", "Login", JOptionPane.INFORMATION_MESSAGE); //if return true popup
                         } else {
@@ -72,7 +72,7 @@ public class loginForm {
         passwordField1.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     String username = textField1.getText(); //get username from textfield
                     String password = String.valueOf(passwordField1.getPassword()); //get password from passwordfield
                     if (username.equals("") || password.equals("")) {
@@ -82,7 +82,7 @@ public class loginForm {
                         try { //same as explained in loginCheck or signupWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
                             if (loginCheck.loginCheck(username, password)) { //calling loginCheck.class method loginCheck.
 
-                                SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner,username).panel1));
+                                SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner, username).panel1));
 
                                 //JOptionPane.showMessageDialog(panelLogin, "Welcome " + username + "!", "Login", JOptionPane.INFORMATION_MESSAGE); //if return true popup
                             } else {
@@ -150,7 +150,7 @@ public class loginForm {
         panelLogin2.add(label1, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label2 = new JLabel();
         label2.setForeground(new Color(-16777216));
-        label2.setText("Username");
+        label2.setText("AAU mail");
         panelLogin2.add(label2, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         passwordField1 = new JPasswordField();
         panelLogin2.add(passwordField1, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));

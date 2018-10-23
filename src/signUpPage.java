@@ -33,16 +33,15 @@ public class signUpPage {
                 String gender = (String) genderDropdown.getSelectedItem(); // get gender from dropdown list
 
 
-
                 if (username.equals("") || password.equals("") || firstName.equals("")) {
                     JOptionPane.showMessageDialog(panelSignUp, "Please fill in all fields", "Error", JOptionPane.ERROR_MESSAGE); // error message
                 } else {
                     try { //java rules require to do this
                         if (!username.contains(" ") && !password.contains(" ") && !firstName.contains(" ")) {
-                            if (username.length()>15) {
-                                System.out.println(username.substring(username.length()-15).toLowerCase());
+                            if (username.length() > 15) {
+                                System.out.println(username.substring(username.length() - 15).toLowerCase());
 
-                                if ((username.substring(username.length()-15).toLowerCase().equals("@student.aau.dk"))) {
+                                if ((username.substring(username.length() - 15).toLowerCase().equals("@student.aau.dk"))) {
                                     if (loginCheck.loginCheck(username, password)) { //calling loginCheck.class method loginCheck. (checking all database lines if username exists
                                         JOptionPane.showMessageDialog(panelSignUp, "An account already exists with this email!", "Error", JOptionPane.ERROR_MESSAGE); // error message
                                     } else {
@@ -131,7 +130,7 @@ public class signUpPage {
         panelLogin2.add(label2, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label3 = new JLabel();
         label3.setForeground(new Color(-16777216));
-        label3.setText("Username");
+        label3.setText("AAU mail");
         panelLogin2.add(label3, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         passwordField1 = new JPasswordField();
         panelLogin2.add(passwordField1, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
