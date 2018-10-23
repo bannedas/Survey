@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 public class loginForm {
@@ -64,6 +66,32 @@ public class loginForm {
                     passwordField1.setEchoChar((char) 0); //show input symbols
                 } else {
                     passwordField1.setEchoChar('*'); //hide input with *
+                }
+            }
+        });
+        passwordField1.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    String username = textField1.getText(); //get username from textfield
+                    String password = String.valueOf(passwordField1.getPassword()); //get password from passwordfield
+                    if (username.equals("") || password.equals("")) {
+                        JOptionPane.showMessageDialog(panelLogin, "Type in your username and password", "Error", JOptionPane.ERROR_MESSAGE); // error message if no username and/or password found in fields
+                    } else {
+                        try { //same as explained in loginCheck or signupWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
+                            if (loginCheck.loginCheck(username, password)) { //calling loginCheck.class method loginCheck.
+
+                                SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner,username).panel1));
+
+                                //JOptionPane.showMessageDialog(panelLogin, "Welcome " + username + "!", "Login", JOptionPane.INFORMATION_MESSAGE); //if return true popup
+                            } else {
+                                JOptionPane.showMessageDialog(panelLogin, "Incorrect login or password", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
+                                textField1.requestFocus();
+                            }
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
                 }
             }
         });
