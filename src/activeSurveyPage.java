@@ -22,22 +22,14 @@ public class activeSurveyPage {
     final private mainFrame owner;
     private String user;
 
-
-//        for (int i = 0; i < listOfFiles.length; i++) {
-//            if (listOfFiles[i].isFile()) {
-//                System.out.println(listOfFiles[i].getName());
-//                System.out.println(listOfFiles.length);
-//               // buttons.setText("Back");
-//                button = new JButton();
-//                questionPanel.add(button);
-//            }
-
     public activeSurveyPage(mainFrame owner, String user) {
         super();
         this.user = user;
         this.owner = owner;
-
         $$$setupUI$$$();
+
+        //example
+        progressBarUpdate(3, 5);
 
         backButton.addActionListener(new ActionListener() {
             @Override
@@ -53,8 +45,9 @@ public class activeSurveyPage {
         });
     }
 
-    private void progressBarUpdate(int number) {
-        progressBar1.setValue(number);
+    private void progressBarUpdate(int questionNumber, int questionCount) {
+        progressBar1.setValue(questionNumber);
+        progressBar1.setMaximum(questionCount);
         progressBar1.setStringPainted(true);
     }
 
