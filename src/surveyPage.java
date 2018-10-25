@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 
 public class surveyPage {
     public JPanel surveyPanel;
@@ -14,7 +15,7 @@ public class surveyPage {
     final private mainFrame owner;
     private String user;
 
-    private void renameButtons() {
+    private void renameButtons() throws IOException {
         File folder = new File("survey");
         File[] listOfFiles = folder.listFiles();
         switch (listOfFiles.length) { //Check if how many surveys there are in the survey folder. max 3
@@ -26,19 +27,23 @@ public class surveyPage {
                 button3.setVisible(false);
                 break;
             case 1: // 1 survey shown on first button. Other buttons not visible
-                button1.setText(listOfFiles[0].getName());
+                    button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
                 button2.setVisible(false);
                 button3.setVisible(false);
                 break;
             case 2: // 2 surveys shown on the first 2 buttons. last button not visible.
-                button1.setText(listOfFiles[0].getName());
-                button2.setText(listOfFiles[1].getName());
+
+                    button1.setText(getInfo.getInfo(listOfFiles[0].getName(), "name"));
+                    button2.setText(getInfo.getInfo(listOfFiles[1].getName(), "name"));
+
                 button3.setVisible(false);
                 break;
             case 3: // 3 surveys shown on all buttons.
-                button1.setText(listOfFiles[0].getName().substring(0,listOfFiles[0].getName().length()-4));
-                button2.setText(listOfFiles[1].getName().substring(0,listOfFiles[1].getName().length()-4));
-                button3.setText(listOfFiles[2].getName().substring(0,listOfFiles[2].getName().length()-4));
+
+                    button1.setText(getInfo.getInfo(listOfFiles[0].getName(), "name"));
+                    button2.setText(getInfo.getInfo(listOfFiles[1].getName(), "name"));
+                    button3.setText(getInfo.getInfo(listOfFiles[2].getName(), "name"));
+
                 break;
             default: // too many surveys so error shown in first button which is disabled. Remaining buttons are set to not visible
                 button1.setText("<html><center>Too many files in <br>survey folder<br>Please check /survey</center></html>");
@@ -57,7 +62,11 @@ public class surveyPage {
         this.owner = owner;
 
         $$$setupUI$$$();
-        renameButtons();
+        try {
+            renameButtons();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         button1.addActionListener(new ActionListener() {
             @Override

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 public class getInfo {
     public static String getInfo(String user, String info) throws IOException {
+        System.out.println("Test WRONG");
         String[] parts;
         switch (info) {
             case "name":
@@ -16,6 +17,23 @@ public class getInfo {
                 break;
         }
         return user;
+    }
+    public static String getInfo(int surveyID, String info) throws IOException {
+        String[] parts;
+        switch (info)   {
+            case "name":
+                parts = readDatabase(surveyID).split(" ");
+                return parts[0];
+            case "length":
+                parts = readDatabase(surveyID).split(" ");
+                return parts[1];
+            case "type":
+                parts = readDatabase(surveyID).split(" ");
+                return parts[2];
+            default:
+                break;
+        }
+        return "error";
     }
     private static String readDatabase(String user) throws IOException {
 
@@ -32,6 +50,15 @@ public class getInfo {
             }
         }
     return user;
+    }
+
+    private static String readDatabase(int surveyID) throws IOException {
+        String dir = "survey/"+surveyID; //database location (right now in the survey folder as an app
+        FileReader fileReader = new FileReader(dir); //initialize filereader (this one opens files)
+        BufferedReader bufferedReader = new BufferedReader(fileReader); //initialize bufferedreader (this one can read files)
+
+        return bufferedReader.readLine(); //return first line of specified file
+
     }
 
 }
