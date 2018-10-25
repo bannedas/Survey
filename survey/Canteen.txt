@@ -1,0 +1,2 @@
+SurveyID NumberOfQuestions SurveyType
+Question1 answer1 answer2 answer3
