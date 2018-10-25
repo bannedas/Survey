@@ -17,30 +17,30 @@ public class surveyPage {
     private void renameButtons() {
         File folder = new File("survey");
         File[] listOfFiles = folder.listFiles();
-        switch (listOfFiles.length) {
-            case 0:
+        switch (listOfFiles.length) { //Check if how many surveys there are in the survey folder. max 3
+            case 0: // No survey. disable first button and set text to show "No surveys available". Remaining buttons are set to not be visible.
                 button1.setText("No surveys available");
                 button1.setEnabled(false);
                 button1.setVisible(true);
                 button2.setVisible(false);
                 button3.setVisible(false);
                 break;
-            case 1:
+            case 1: // 1 survey shown on first button. Other buttons not visible
                 button1.setText(listOfFiles[0].getName());
                 button2.setVisible(false);
                 button3.setVisible(false);
                 break;
-            case 2:
+            case 2: // 2 surveys shown on the first 2 buttons. last button not visible.
                 button1.setText(listOfFiles[0].getName());
                 button2.setText(listOfFiles[1].getName());
                 button3.setVisible(false);
                 break;
-            case 3:
-                button1.setText(listOfFiles[0].getName());
-                button2.setText(listOfFiles[1].getName());
-                button3.setText(listOfFiles[2].getName());
+            case 3: // 3 surveys shown on all buttons.
+                button1.setText(listOfFiles[0].getName().substring(0,listOfFiles[0].getName().length()-4));
+                button2.setText(listOfFiles[1].getName().substring(0,listOfFiles[1].getName().length()-4));
+                button3.setText(listOfFiles[2].getName().substring(0,listOfFiles[2].getName().length()-4));
                 break;
-            default:
+            default: // too many surveys so error shown in first button which is disabled. Remaining buttons are set to not visible
                 button1.setText("<html><center>Too many files in <br>survey folder<br>Please check /survey</center></html>");
                 button1.setEnabled(false);
                 button1.setVisible(true);
