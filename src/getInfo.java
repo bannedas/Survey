@@ -34,6 +34,12 @@ public class getInfo {
         }
         return "error";
     }
+    public static String[] getInfo(int surveyID, int question) throws IOException {
+        String[] parts = readDatabase(surveyID,question);
+
+
+        return parts;
+    }
     private static String readDatabase(String user) throws IOException {
 
         String dir = "database.txt"; //database location (right now in the same folder as an app
@@ -49,6 +55,24 @@ public class getInfo {
             }
         }
     return user;
+    }
+
+    private static String[] readDatabase(int surveyID, int question) throws IOException {
+        String dir = "survey/"+surveyID; //database location (right now in the survey folder as an app
+        FileReader fileReader = new FileReader(dir); //initialize filereader (this one opens files)
+        BufferedReader bufferedReader = new BufferedReader(fileReader); //initialize bufferedreader (this one can read files)
+        String[] parts;
+        String line; //initialize string (later we assign it to readLine so it becomes 1 line of database
+        int currentLine = 0;
+        while ((line = bufferedReader.readLine()) != null) { //while (read line is not equal empty line)
+            if (currentLine == question) {
+                parts = line.split(":"); //split by :
+                break;
+            }
+            currentLine += 1;
+        }
+        return parts;
+
     }
 
     private static String readDatabase(int surveyID) throws IOException {
