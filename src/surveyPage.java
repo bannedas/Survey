@@ -27,22 +27,21 @@ public class surveyPage {
                 button3.setVisible(false);
                 break;
             case 1: // 1 survey shown on first button. Other buttons not visible
-                    button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
+                button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
                 button2.setVisible(false);
                 button3.setVisible(false);
                 break;
             case 2: // 2 surveys shown on the first 2 buttons. last button not visible.
 
-                    button1.setText(getInfo.getInfo(listOfFiles[0].getName(), "name"));
-                    button2.setText(getInfo.getInfo(listOfFiles[1].getName(), "name"));
-
+                button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
+                button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[1].getName()),"name"));
                 button3.setVisible(false);
                 break;
             case 3: // 3 surveys shown on all buttons.
 
-                    button1.setText(getInfo.getInfo(listOfFiles[0].getName(), "name"));
-                    button2.setText(getInfo.getInfo(listOfFiles[1].getName(), "name"));
-                    button3.setText(getInfo.getInfo(listOfFiles[2].getName(), "name"));
+                button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
+                button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[1].getName()),"name"));
+                button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[2].getName()),"name"));
 
                 break;
             default: // too many surveys so error shown in first button which is disabled. Remaining buttons are set to not visible
