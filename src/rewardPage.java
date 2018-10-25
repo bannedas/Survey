@@ -40,7 +40,7 @@ public class rewardPage {
             public void actionPerformed(ActionEvent e) {
                 try {
                     if (pointSystem.pointSystem(user, -1)) {
-                        SwingUtilities.invokeLater(() -> owner.showView(new qrRewardPage(owner, user).panel1));
+                        SwingUtilities.invokeLater(() -> owner.showView(new rewardPage(owner, user).rewardPanel));
                     } else {
                         JOptionPane.showMessageDialog(rewardPanel, "You dont have enough points for this item", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
                     }

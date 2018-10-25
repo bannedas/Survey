@@ -1,2 +1,2 @@
-admin 61646d696e Admin Male 1045
+admin 61646d696e Admin Male 766
 monkey@student.aau.dk 61 Adam Male 0
