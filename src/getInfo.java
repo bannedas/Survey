@@ -4,7 +4,6 @@ import java.io.IOException;
 
 public class getInfo {
     public static String getInfo(String user, String info) throws IOException {
-        System.out.println("Test WRONG");
         String[] parts;
         switch (info) {
             case "name":
