@@ -24,6 +24,12 @@ public class activeSurveyPage {
     final private mainFrame owner;
     private String user;
 
+    private void finishSurvey() {
+        questionLabel.setText("Survey complete");
+        answer1Button.setText("Finish and claim points");
+        answer2Button.setVisible(false);
+        answer3Button.setVisible(false);
+    }
     private void renameButtons(int surveyID,int questionNumber) throws IOException {
         File folder = new File("survey");
         String[] questionList = getInfo.getInfo(surveyID,questionNumber);
@@ -58,15 +64,25 @@ public class activeSurveyPage {
         super();
         this.user = user;
         this.owner = owner;
-        $$$setupUI$$$();
-
+        int surveyLength = 0;
         try {
-            //Update the progress bar
-            progressBarUpdate(currentQuestion, Integer.valueOf(getInfo.getInfo(surveyID,"length")));
-            //Rename buttons with answer text
-            renameButtons(surveyID,currentQuestion);
+            surveyLength = Integer.valueOf(getInfo.getInfo(surveyID, "length"));
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        $$$setupUI$$$();
+        if (currentQuestion <= surveyLength) { //If there are more questions in survey
+
+            try {
+                //Update the progress bar
+                progressBarUpdate(currentQuestion,surveyLength);
+                //Rename buttons with answer text
+                renameButtons(surveyID, currentQuestion);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else { //If no more questions remain finalize survey
+            finishSurvey();
         }
 
         backButton.addActionListener(new ActionListener() {
@@ -75,10 +91,15 @@ public class activeSurveyPage {
                 SwingUtilities.invokeLater(() -> owner.showView(new surveyPage(owner, user).surveyPanel));
             }
         });
+        int finalSurveyLength = surveyLength;
         answer1Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                if (currentQuestion <= finalSurveyLength){ //If survey is finished
+                    
+                } else{
+                    //Answer 1 pressed
+                }
             }
         });
     }
