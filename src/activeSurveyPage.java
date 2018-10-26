@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 public class activeSurveyPage {
     public JPanel panel;
@@ -22,14 +24,50 @@ public class activeSurveyPage {
     final private mainFrame owner;
     private String user;
 
-    public activeSurveyPage(mainFrame owner, String user) {
+    private void renameButtons(int surveyID,int questionNumber) throws IOException {
+        File folder = new File("survey");
+        String[] questionList = getInfo.getInfo(surveyID,questionNumber);
+        //Set the question text
+        questionLabel.setText(questionList[0]);
+        switch (questionList.length) { //Check the question for amount of answers to question
+
+            case 3: // 2 answers shown on the first 2 buttons. last button not visible.
+
+                answer1Button.setText(questionList[1]);
+                answer2Button.setText(questionList[2]);
+                answer3Button.setVisible(false);
+                break;
+            case 4: // 3 answers shown on all buttons.
+
+                answer1Button.setText(questionList[1]);
+                answer2Button.setText(questionList[2]);
+                answer3Button.setText(questionList[3]);
+
+                break;
+            default: // too many or few answers; so error shown in first button which is disabled. Remaining buttons are set to not visible
+                answer1Button.setText("<html><center>Too many answers in <br>question line<br>Please check /survey</center></html>");
+                answer1Button.setEnabled(false);
+                answer1Button.setVisible(true);
+                answer2Button.setVisible(false);
+                answer3Button.setVisible(false);
+                break;
+
+        }
+    }
+    public activeSurveyPage(mainFrame owner, String user, int surveyID, int currentQuestion) {
         super();
         this.user = user;
         this.owner = owner;
         $$$setupUI$$$();
 
-        //example
-        progressBarUpdate(3, 5);
+        try {
+            //Update the progress bar
+            progressBarUpdate(currentQuestion, Integer.valueOf(getInfo.getInfo(surveyID,"length")));
+            //Rename buttons with answer text
+            renameButtons(surveyID,currentQuestion);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         backButton.addActionListener(new ActionListener() {
             @Override

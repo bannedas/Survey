@@ -57,11 +57,11 @@ public class getInfo {
     return user;
     }
 
-    private static String[] readDatabase(int surveyID, int question) throws IOException {
+    private static String[] readDatabase(int surveyID, int question) throws IOException { //Reads såecified survey file and returns specified question from that file.
         String dir = "survey/"+surveyID; //database location (right now in the survey folder as an app
         FileReader fileReader = new FileReader(dir); //initialize filereader (this one opens files)
         BufferedReader bufferedReader = new BufferedReader(fileReader); //initialize bufferedreader (this one can read files)
-        String[] parts;
+        String[] parts = new String[0];
         String line; //initialize string (later we assign it to readLine so it becomes 1 line of database
         int currentLine = 0;
         while ((line = bufferedReader.readLine()) != null) { //while (read line is not equal empty line)

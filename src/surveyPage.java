@@ -15,9 +15,8 @@ public class surveyPage {
     final private mainFrame owner;
     private String user;
 
-    private void renameButtons() throws IOException {
-        File folder = new File("survey");
-        File[] listOfFiles = folder.listFiles();
+    private void renameButtons(File[] listOfFiles) throws IOException {
+
         switch (listOfFiles.length) { //Check if how many surveys there are in the survey folder. max 3
             case 0: // No survey. disable first button and set text to show "No surveys available". Remaining buttons are set to not be visible.
                 button1.setText("No surveys available");
@@ -60,29 +59,33 @@ public class surveyPage {
         this.user = user;
         this.owner = owner;
 
+        File folder = new File("survey");
+        File[] listOfFiles = folder.listFiles();
+
         $$$setupUI$$$();
         try {
-            renameButtons();
+            renameButtons(listOfFiles);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user).panel));
+                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,Integer.valueOf(listOfFiles[0].getName()),1).panel));
             }
         });
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user).panel));
+                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,Integer.valueOf(listOfFiles[1].getName()),1).panel));
             }
         });
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user).panel));
+                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,Integer.valueOf(listOfFiles[2].getName()),1).panel));
             }
         });
         backButton.addActionListener(new ActionListener() {
