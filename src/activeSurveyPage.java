@@ -96,10 +96,28 @@ public class activeSurveyPage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (currentQuestion <= finalSurveyLength){ //If survey is finished
-                    
+                    //Add survey to userdatabase file to show it has been completed by user
+                    try {
+                        pointSystem.pointSystem(user,Integer.valueOf(getInfo.getInfo(surveyID,"points"))); //Grant user points
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                    SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner, user).panel1));//Return to mainScreen
                 } else{
                     //Answer 1 pressed
                 }
+            }
+        });
+        answer2Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Answer 2 pressed
+            }
+        });
+        answer3Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Answer 3 pressed
             }
         });
     }
