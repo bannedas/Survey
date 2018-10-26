@@ -26,7 +26,7 @@ public class getInfo {
             case "length":
                 parts = readDatabase(surveyID).split(" ");
                 return parts[1];
-            case "type":
+            case "points":
                 parts = readDatabase(surveyID).split(" ");
                 return parts[2];
             default:
