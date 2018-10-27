@@ -95,8 +95,10 @@ public class activeSurveyPage {
         answer1Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (currentQuestion <= finalSurveyLength){ //If survey is finished
-                    //Add survey to userdatabase file to show it has been completed by user
+                if (currentQuestion >= finalSurveyLength){ //If survey is finished
+
+                    //Add survey to userdatabase file to show it has been completed by user (If no file exist, create it)
+
                     try {
                         pointSystem.pointSystem(user,Integer.valueOf(getInfo.getInfo(surveyID,"points"))); //Grant user points
                     } catch (IOException e1) {
@@ -105,6 +107,8 @@ public class activeSurveyPage {
                     SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner, user).panel1));//Return to mainScreen
                 } else{
                     //Answer 1 pressed
+                    //Record answer
+                    //Send to next question page
                 }
             }
         });

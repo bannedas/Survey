@@ -23,8 +23,6 @@ public class pointSystem {
             String[] parts = line.split(" "); //split by spaces
             if (parts[0].equals(username)) { //parts[0] = username
                 int temp = Integer.valueOf(parts[4]);
-                System.out.println(temp);
-                System.out.println(points);
                 if(points < 0) {
                     if(temp + points < 0) {
                         bufferedWriter.close(); //close file so we can delete it
