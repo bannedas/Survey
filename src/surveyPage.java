@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class surveyPage {
     public JPanel surveyPanel;
@@ -68,23 +69,23 @@ public class surveyPage {
             e.printStackTrace();
         }
 
-
+        List answerList = new List();
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,Integer.valueOf(listOfFiles[0].getName()),1).panel));
+                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,Integer.valueOf(listOfFiles[0].getName()),1,answerList).panel));
             }
         });
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,Integer.valueOf(listOfFiles[1].getName()),1).panel));
+                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,Integer.valueOf(listOfFiles[1].getName()),1,answerList).panel));
             }
         });
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,Integer.valueOf(listOfFiles[2].getName()),1).panel));
+                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,Integer.valueOf(listOfFiles[2].getName()),1,answerList).panel));
             }
         });
         backButton.addActionListener(new ActionListener() {

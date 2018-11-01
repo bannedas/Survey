@@ -60,7 +60,7 @@ public class activeSurveyPage {
 
         }
     }
-    public activeSurveyPage(mainFrame owner, String user, int surveyID, int currentQuestion) {
+    public activeSurveyPage(mainFrame owner, String user, int surveyID, int currentQuestion, List answers) {
         super();
         this.user = user;
         this.owner = owner;
@@ -96,8 +96,11 @@ public class activeSurveyPage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (currentQuestion >= finalSurveyLength){ //If survey is finished
-
-                    //Add survey to userdatabase file to show it has been completed by user (If no file exist, create it)
+                    try {
+                        surveyWriter.surveyWriter(user,answers,surveyID);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
 
                     try {
                         pointSystem.pointSystem(user,Integer.valueOf(getInfo.getInfo(surveyID,"points"))); //Grant user points
@@ -107,27 +110,27 @@ public class activeSurveyPage {
                     SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner, user).panel1));//Return to mainScreen
                 } else{
                     //Answer 1 pressed
-                    //Record answer
-                    //Send to next question page
+                    answers.add("1");//Record answer
+                    SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner,user,surveyID,currentQuestion+1,answers).panel));//Send to next question page
                 }
             }
         });
         answer2Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Answer 2 pressed
+                answers.add("2");//Answer 2 pressed
             }
         });
         answer3Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Answer 3 pressed
+                answers.add("3");//Answer 3 pressed
             }
         });
     }
 
     private void progressBarUpdate(int questionNumber, int questionCount) {
-        progressBar1.setValue(questionNumber);
+        progressBar1.setValue(questionNumber-1);
         progressBar1.setMaximum(questionCount);
         progressBar1.setStringPainted(true);
     }
