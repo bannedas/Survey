@@ -20,7 +20,6 @@ public class signUpPage {
     final private mainFrame owner;
 
     public signUpPage(mainFrame owner) {
-        super();
         this.owner = owner;
 
 

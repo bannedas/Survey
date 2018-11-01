@@ -11,7 +11,6 @@ public class helpPage {
     private String user;
 
     public helpPage(mainFrame owner, String user) {
-        super();
         this.user = user;
         this.owner = owner;
         backButton.addActionListener(new ActionListener() {

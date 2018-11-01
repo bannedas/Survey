@@ -19,8 +19,6 @@ public class loginForm {
     private String user;
 
     public loginForm(mainFrame owner) {
-        super();
-
         this.owner = owner;
 
         textField1.setBorder(BorderFactory.createEmptyBorder()); //removes borders of text field

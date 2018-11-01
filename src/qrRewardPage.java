@@ -13,7 +13,6 @@ public class qrRewardPage {
     private String user;
 
     public qrRewardPage(mainFrame owner, String user) {
-        super();
         this.user = user;
         this.owner = owner;
 

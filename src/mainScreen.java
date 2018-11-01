@@ -22,7 +22,6 @@ public class mainScreen {
     private String user;
 
     public mainScreen(mainFrame owner, String user) {
-        super();
         this.user = user;
         this.owner = owner;
 

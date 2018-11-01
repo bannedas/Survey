@@ -19,7 +19,6 @@ public class rewardPage {
 
 
     public rewardPage(mainFrame owner, String user) {
-        super();
         this.user = user;
         this.owner = owner;
 

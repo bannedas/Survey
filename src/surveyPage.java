@@ -55,7 +55,6 @@ public class surveyPage {
     }
 
     public surveyPage(mainFrame owner, String user) {
-        super();
         this.user = user;
         this.owner = owner;
 
