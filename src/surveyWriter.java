@@ -15,11 +15,9 @@ public class surveyWriter {
         String dir = "userdatabase/"+user+".txt"; //database location (right now in the same folder as an app
 
         File database = new File (dir);
-        Boolean newFile = false;
 
         if (database.createNewFile()) {
             System.out.println("userdatabase not found, created new");
-            newFile = true;
         } else {
             System.out.println("userdatabase found, reading");
         }//Add survey to userdatabase file to show it has been completed by user (If no file exist, create it)
