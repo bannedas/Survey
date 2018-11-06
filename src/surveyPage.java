@@ -28,6 +28,10 @@ public class surveyPage {
                 break;
             case 1: // 1 survey shown on first button. Other buttons not visible
                 button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
+                System.out.println(getInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[0].getName())));
+                if (getInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[0].getName()))){
+                    button1.setEnabled(false);
+            }
                 button2.setVisible(false);
                 button3.setVisible(false);
                 break;
