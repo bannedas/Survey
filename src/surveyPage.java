@@ -68,23 +68,47 @@ public class surveyPage {
             e.printStackTrace();
         }
 
-        List answerList = new List();
+
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,Integer.valueOf(listOfFiles[0].getName()),1,answerList).panel));
+                int surveyID = Integer.valueOf(listOfFiles[0].getName());
+                int surveyLength = 0;
+                try {
+                    surveyLength = Integer.valueOf(getInfo.getInfo(surveyID, "length"));
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                String[] answerList = new String[surveyLength];
+                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,surveyID,1,answerList).panel));
             }
         });
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,Integer.valueOf(listOfFiles[1].getName()),1,answerList).panel));
+                int surveyID = Integer.valueOf(listOfFiles[0].getName());
+                int surveyLength = 0;
+                try {
+                    surveyLength = Integer.valueOf(getInfo.getInfo(surveyID, "length"));
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                String[] answerList = new String[surveyLength];
+                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,surveyID,1,answerList).panel));
             }
         });
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,Integer.valueOf(listOfFiles[2].getName()),1,answerList).panel));
+                int surveyID = Integer.valueOf(listOfFiles[0].getName());
+                int surveyLength = 0;
+                try {
+                    surveyLength = Integer.valueOf(getInfo.getInfo(surveyID, "length"));
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                String[] answerList = new String[surveyLength];
+                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,surveyID,1,answerList).panel));
             }
         });
         backButton.addActionListener(new ActionListener() {

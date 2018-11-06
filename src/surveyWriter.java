@@ -1,9 +1,11 @@
-import java.awt.*;
+
 import java.io.*;
+import java.util.Arrays;
+
 
 public class surveyWriter {
 
-    public static boolean surveyWriter(String user, List answers, int surveyID) throws IOException {
+    public static boolean surveyWriter(String user, String[] answers, int surveyID) throws IOException {
         /* IOException = unexpected cases when writing/reading files
         it is required by JAVA and this is the best explanation i found on google:
         (throws IOException) specifies that the method may going to throws IOException and insist
@@ -24,8 +26,7 @@ public class surveyWriter {
 
         FileWriter fileWriter = new FileWriter(database, true); //initialize filereader (this one opens files)
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter); //initialize bufferedreader (this one can read files)
-
-        bufferedWriter.write(surveyID+" "+answers.toString()); //write in database
+        bufferedWriter.write(surveyID+" "+String.join(" ", Arrays.asList(answers))); //write in database
         bufferedWriter.newLine(); //write \n
 
 

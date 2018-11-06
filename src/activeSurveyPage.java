@@ -60,7 +60,7 @@ public class activeSurveyPage {
 
         }
     }
-    public activeSurveyPage(mainFrame owner, String user, int surveyID, int currentQuestion, List answers) {
+    public activeSurveyPage(mainFrame owner, String user, int surveyID, int currentQuestion, String[] answers) {
         super();
         this.user = user;
         this.owner = owner;
@@ -95,7 +95,7 @@ public class activeSurveyPage {
         answer1Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (currentQuestion >= finalSurveyLength){ //If survey is finished
+                if (currentQuestion > finalSurveyLength){ //If survey is finished
                     try {
                         surveyWriter.surveyWriter(user,answers,surveyID);
                     } catch (IOException e1) {
@@ -110,7 +110,7 @@ public class activeSurveyPage {
                     SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner, user).panel1));//Return to mainScreen
                 } else{
                     //Answer 1 pressed
-                    answers.add("1");//Record answer
+                    answers[currentQuestion-1]="1";//Record answer
                     SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner,user,surveyID,currentQuestion+1,answers).panel));//Send to next question page
                 }
             }
@@ -118,13 +118,15 @@ public class activeSurveyPage {
         answer2Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                answers.add("2");//Answer 2 pressed
+                answers[currentQuestion-1]="2";//Answer 2 pressed
+                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner,user,surveyID,currentQuestion+1,answers).panel));//Send to next question page
             }
         });
         answer3Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                answers.add("3");//Answer 3 pressed
+                answers[currentQuestion-1]="3";//Answer 3 pressed
+                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner,user,surveyID,currentQuestion+1,answers).panel));//Send to next question page
             }
         });
     }
