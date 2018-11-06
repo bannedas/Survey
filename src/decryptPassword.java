@@ -1,15 +1,9 @@
 public class decryptPassword {
-    public static String decrypt(String hex) {
-
-//        byte[] bytes = hexStringToByteArray(b);
-//        String st = new String(bytes, StandardCharsets.UTF_8);
-//        System.out.println(st);
-
-
-        StringBuilder str = new StringBuilder();
-        for (int i = 0; i < hex.length(); i+=2) {
-            str.append((char) Integer.parseInt(hex.substring(i, i + 2), 16));
+    public static String decrypt(String hex) { //get string input
+        StringBuilder str = new StringBuilder(); //initialize string builder
+        for (int i = 0; i < hex.length(); i+=2) { //run loop for whole string lenght
+            str.append((char) Integer.parseInt(hex.substring(i, i + 2), 16)); //translate two numbers to char
         }
-        return str.toString();
+        return str.toString(); //return string
     }
 }
