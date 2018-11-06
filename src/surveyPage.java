@@ -38,7 +38,6 @@ public class surveyPage {
                 button3.setVisible(false);
                 break;
             case 3: // 3 surveys shown on all buttons.
-
                 button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
                 button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[1].getName()),"name"));
                 button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[2].getName()),"name"));
