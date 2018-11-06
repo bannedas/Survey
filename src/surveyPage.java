@@ -28,7 +28,6 @@ public class surveyPage {
                 break;
             case 1: // 1 survey shown on first button. Other buttons not visible
                 button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
-                System.out.println(getInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[0].getName())));
                 if (getInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[0].getName()))){
                     button1.setEnabled(false);
             }
@@ -39,12 +38,27 @@ public class surveyPage {
 
                 button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
                 button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[1].getName()),"name"));
+                if (getInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[0].getName()))){
+                    button1.setEnabled(false);
+                }
+                if (getInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[1].getName()))){
+                    button2.setEnabled(false);
+                }
                 button3.setVisible(false);
                 break;
             case 3: // 3 surveys shown on all buttons.
                 button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
                 button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[1].getName()),"name"));
                 button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[2].getName()),"name"));
+                if (getInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[0].getName()))){
+                    button1.setEnabled(false);
+                }
+                if (getInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[1].getName()))){
+                    button2.setEnabled(false);
+                }
+                if (getInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[2].getName()))){
+                    button3.setEnabled(false);
+                }
 
                 break;
             default: // too many surveys so error shown in first button which is disabled. Remaining buttons are set to not visible
@@ -90,7 +104,7 @@ public class surveyPage {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int surveyID = Integer.valueOf(listOfFiles[0].getName());
+                int surveyID = Integer.valueOf(listOfFiles[1].getName());
                 int surveyLength = 0;
                 try {
                     surveyLength = Integer.valueOf(getInfo.getInfo(surveyID, "length"));
@@ -104,7 +118,7 @@ public class surveyPage {
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int surveyID = Integer.valueOf(listOfFiles[0].getName());
+                int surveyID = Integer.valueOf(listOfFiles[2].getName());
                 int surveyLength = 0;
                 try {
                     surveyLength = Integer.valueOf(getInfo.getInfo(surveyID, "length"));
