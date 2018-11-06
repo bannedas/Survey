@@ -74,7 +74,9 @@ public class getInfo {
                     return true; //class returns true and breaks while loop, so class stops
                 }
             }
+            bufferedReader.close();
         }
+
         return false;
     }
     private static String[] readDatabase(int surveyID, int question) throws IOException { //Reads såecified survey file and returns specified question from that file.
