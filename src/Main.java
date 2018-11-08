@@ -1,6 +1,6 @@
 /**
  *
- * DESCRIPTION
+ * the Main class starts the application by the main method, which opens a new MainFrame class.
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0

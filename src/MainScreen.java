@@ -1,6 +1,6 @@
 /**
  *
- * DESCRIPTION
+ * The class MainScreen c
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0

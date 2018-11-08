@@ -1,6 +1,6 @@
 /**
  *
- * DESCRIPTION
+ * The class HelpPage shows the the help "answers" via the Jpanel and contains the HelpPage GUIForm generated code.
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0

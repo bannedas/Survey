@@ -1,6 +1,6 @@
 /**
  *
- * DESCRIPTION
+ * The class SurveyWriter opens the database and writes the SurveyID(the survey) the user picked and writes the answers of the user.
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0

@@ -1,6 +1,6 @@
 /**
  *
- * DESCRIPTION
+ * The MainFrame class, sets the properties of the window that the application is running.
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0

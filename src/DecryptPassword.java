@@ -1,6 +1,6 @@
 /**
  *
- * DESCRIPTION
+ * The class DecryptPassword, decrypts the already encrypted usernames and passwords.
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
