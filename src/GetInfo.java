@@ -1,6 +1,6 @@
 /**
  *
- * DESCRIPTION
+ * GetInfo class with overloaded methods that gets different types of information depending on which version i called.
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0

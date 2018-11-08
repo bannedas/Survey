@@ -1,6 +1,6 @@
 /**
  *
- * DESCRIPTION
+ * LoginForm handles actions on fields and buttons. It also contains LoginForm GUIForm generated code.
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0

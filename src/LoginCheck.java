@@ -1,6 +1,6 @@
 /**
  *
- * DESCRIPTION
+ * LoginCheck matches the given username and password and return true only if they match what is in the database.
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0

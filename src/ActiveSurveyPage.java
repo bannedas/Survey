@@ -1,6 +1,6 @@
 /**
  *
- * DESCRIPTION
+ * ActiveSurveyPage is shown when doing a survey and updates the butons corresponding to the current question of the given survey. It also handles answers to be saved to the userdatabase.
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
