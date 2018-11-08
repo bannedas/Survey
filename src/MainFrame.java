@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 
-<<<<<<< Updated upstream
 public class MainFrame extends JFrame {
     private JPanel viewPanel; //makes panel inside JFrame
     /* simple explanation
@@ -24,24 +23,6 @@ public class MainFrame extends JFrame {
         viewPanel = new JPanel(new BorderLayout()); //set layout mode for viewPanel
         add(viewPanel, BorderLayout.CENTER); //add viewPanel to center of app
         showView(new LoginForm(this).panelLogin); //call method showView
-=======
-public class mainFrame extends JFrame {
-    private JPanel viewPanel; //Creates the panel inside the JFrame.
-
-    public mainFrame() {
-        setTitle("Survey"); //Sets the app title.
-        createGUI(); //Calls the method createGUI.
-    }
-
-    private void createGUI() {
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //Closes the frame when "X" is pressed.
-        setSize(300, 600); //Sets the size of the app.
-        setResizable(false); //Restricts the user from resizing the frame.
-        center(); //Calls the method center.
-        viewPanel = new JPanel(new BorderLayout()); //Sets the layout mode for viewPanel.
-        add(viewPanel, BorderLayout.CENTER); //Adds viewPanel to the center of the app.
-        showView(new loginForm(this).panelLogin); //Calls the method showView.
->>>>>>> Stashed changes
     }
 
     public void showView(JPanel panel) {
