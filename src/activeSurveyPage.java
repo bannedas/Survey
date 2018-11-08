@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
-public class activeSurveyPage {
+public class ActiveSurveyPage {
     public JPanel panel;
     private JButton backButton;
     private JPanel backPanel;
@@ -21,7 +21,7 @@ public class activeSurveyPage {
     private JPanel topicPanel;
     private JLabel questionLabel;
 
-    final private mainFrame owner;
+    final private MainFrame owner;
     private String user;
 
     private void finishSurvey() {
@@ -32,7 +32,7 @@ public class activeSurveyPage {
     }
     private void renameButtons(int surveyID,int questionNumber) throws IOException {
         File folder = new File("survey");
-        String[] questionList = getInfo.getInfo(surveyID,questionNumber);
+        String[] questionList = GetInfo.getInfo(surveyID,questionNumber);
         //Set the question text
         questionLabel.setText(questionList[0]);
         switch (questionList.length) { //Check the question for amount of answers to question
@@ -60,13 +60,13 @@ public class activeSurveyPage {
 
         }
     }
-    public activeSurveyPage(mainFrame owner, String user, int surveyID, int currentQuestion, String[] answers) {
+    public ActiveSurveyPage(MainFrame owner, String user, int surveyID, int currentQuestion, String[] answers) {
         super();
         this.user = user;
         this.owner = owner;
         int surveyLength = 0;
         try {
-            surveyLength = Integer.valueOf(getInfo.getInfo(surveyID, "length"));
+            surveyLength = Integer.valueOf(GetInfo.getInfo(surveyID, "length"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -88,7 +88,7 @@ public class activeSurveyPage {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new surveyPage(owner, user).surveyPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new SurveyPage(owner, user).surveyPanel));
             }
         });
         int finalSurveyLength = surveyLength;
@@ -97,21 +97,21 @@ public class activeSurveyPage {
             public void actionPerformed(ActionEvent e) {
                 if (currentQuestion > finalSurveyLength){ //If survey is finished
                     try {
-                        surveyWriter.surveyWriter(user,answers,surveyID);
+                        SurveyWriter.surveyWriter(user,answers,surveyID);
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
 
                     try {
-                        pointSystem.pointSystem(user,Integer.valueOf(getInfo.getInfo(surveyID,"points"))); //Grant user points
+                        PointSystem.pointSystem(user,Integer.valueOf(GetInfo.getInfo(surveyID,"points"))); //Grant user points
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
-                    SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner, user).panel1));//Return to mainScreen
+                    SwingUtilities.invokeLater(() -> owner.showView(new MainScreen(owner, user).panel1));//Return to MainScreen
                 } else{
                     //Answer 1 pressed
                     answers[currentQuestion-1]="1";//Record answer
-                    SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner,user,surveyID,currentQuestion+1,answers).panel));//Send to next question page
+                    SwingUtilities.invokeLater(() -> owner.showView(new ActiveSurveyPage(owner,user,surveyID,currentQuestion+1,answers).panel));//Send to next question page
                 }
             }
         });
@@ -119,14 +119,14 @@ public class activeSurveyPage {
             @Override
             public void actionPerformed(ActionEvent e) {
                 answers[currentQuestion-1]="2";//Answer 2 pressed
-                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner,user,surveyID,currentQuestion+1,answers).panel));//Send to next question page
+                SwingUtilities.invokeLater(() -> owner.showView(new ActiveSurveyPage(owner,user,surveyID,currentQuestion+1,answers).panel));//Send to next question page
             }
         });
         answer3Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 answers[currentQuestion-1]="3";//Answer 3 pressed
-                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner,user,surveyID,currentQuestion+1,answers).panel));//Send to next question page
+                SwingUtilities.invokeLater(() -> owner.showView(new ActiveSurveyPage(owner,user,surveyID,currentQuestion+1,answers).panel));//Send to next question page
             }
         });
     }

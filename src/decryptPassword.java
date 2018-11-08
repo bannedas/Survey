@@ -1,4 +1,4 @@
-public class decryptPassword {
+public class DecryptPassword {
     public static String decrypt(String hex) { //get string input
         StringBuilder str = new StringBuilder(); //initialize string builder
         for (int i = 0; i < hex.length(); i+=2) { //run loop for whole string lenght

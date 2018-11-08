@@ -6,7 +6,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
-public class loginForm {
+public class LoginForm {
     public JPanel panelLogin;
     private JButton loginButton;
     private JButton signUpButton;
@@ -15,10 +15,10 @@ public class loginForm {
     private JCheckBox showPasswordCheckBox;
     private JPanel panelLogin2;
 
-    final private mainFrame owner;
+    final private MainFrame owner;
     private String user;
 
-    public loginForm(mainFrame owner) {
+    public LoginForm(MainFrame owner) {
         this.owner = owner;
 
         textField1.setBorder(BorderFactory.createEmptyBorder()); //removes borders of text field
@@ -32,15 +32,17 @@ public class loginForm {
                 if (username.equals("") || password.equals("")) {
                     JOptionPane.showMessageDialog(panelLogin, "Type in your username and password", "Error", JOptionPane.ERROR_MESSAGE); // error message if no username and/or password found in fields
                 } else {
-                    try { //same as explained in loginCheck or signupWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
-                        if (loginCheck.loginCheck(username, password)) { //calling loginCheck.class method loginCheck.
+                    try { //same as explained in LoginCheck or SignupWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
+                        if (LoginCheck.loginCheck(username, password)) { //calling LoginCheck.class method LoginCheck.
 
-                            SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner, username).panel1));
+                            SwingUtilities.invokeLater(() -> owner.showView(new MainScreen(owner, username).panel1));
 
                             //JOptionPane.showMessageDialog(panelLogin, "Welcome " + username + "!", "Login", JOptionPane.INFORMATION_MESSAGE); //if return true popup
                         } else {
-                            JOptionPane.showMessageDialog(panelLogin, "Incorrect login or password", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
-                        }
+                            for(int i = 0; i < 100; i++) {
+                                JOptionPane.showMessageDialog(panelLogin, "Incorrect login or password", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
+                            }
+                            }
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
@@ -51,7 +53,7 @@ public class loginForm {
         //--------------------sign up button ---------------------
         signUpButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new signUpPage(owner).panelSignUp)); //go to signUpPage
+                SwingUtilities.invokeLater(() -> owner.showView(new SignUpPage(owner).panelSignUp)); //go to SignUpPage
             }
         });
 
@@ -76,10 +78,10 @@ public class loginForm {
                         JOptionPane.showMessageDialog(panelLogin, "Type in your AAu mail and password", "Error", JOptionPane.ERROR_MESSAGE); // error message if no username and/or password found in fields
                         textField1.requestFocus();
                     } else {
-                        try { //same as explained in loginCheck or signupWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
-                            if (loginCheck.loginCheck(username, password)) { //calling loginCheck.class method loginCheck.
+                        try { //same as explained in LoginCheck or SignupWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
+                            if (LoginCheck.loginCheck(username, password)) { //calling LoginCheck.class method LoginCheck.
 
-                                SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner, username).panel1));
+                                SwingUtilities.invokeLater(() -> owner.showView(new MainScreen(owner, username).panel1));
 
                                 //JOptionPane.showMessageDialog(panelLogin, "Welcome " + username + "!", "Login", JOptionPane.INFORMATION_MESSAGE); //if return true popup
                             } else {

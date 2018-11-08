@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class signupWriter {
+public class SignupWriter {
     public static boolean signupWriter(String username, String password, String name, String gender) throws IOException {
         /* IOException = unexpected cases when writing/reading files
         it is required by JAVA and this is the best explanation i found on google:
@@ -14,7 +14,7 @@ public class signupWriter {
         FileWriter fileWriter = new FileWriter(database, true); //initialize filereader (this one opens files)
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter); //initialize bufferedreader (this one can read files)
 
-        password = encryptPassword.Encrypt(password);
+        password = EncryptPassword.Encrypt(password);
 
         String firstName = name.substring(0, 1).toUpperCase() + name.substring(1);
 

@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class mainScreen {
+public class MainScreen {
     public JPanel panel1;
     private JButton logoutButton;
     private JPanel backPanel;
@@ -18,22 +18,22 @@ public class mainScreen {
     private JPanel infoPanel;
 
 
-    final private mainFrame owner;
+    final private MainFrame owner;
     private String user;
 
-    public mainScreen(mainFrame owner, String user) {
+    public MainScreen(MainFrame owner, String user) {
         this.user = user;
         this.owner = owner;
 
         String name = null;
         try {
-            name = String.format("Hi %s", getInfo.getInfo(user, "name"));
+            name = String.format("Hi %s", GetInfo.getInfo(user, "name"));
         } catch (IOException e) {
             e.printStackTrace();
         }
         String points = null;
         try {
-            points = String.format("You have %s points!", getInfo.getInfo(user, "points"));
+            points = String.format("You have %s points!", GetInfo.getInfo(user, "points"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -43,25 +43,25 @@ public class mainScreen {
         spendYourPointsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new rewardPage(owner, user).rewardPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new RewardPage(owner, user).rewardPanel));
             }
         });
         availableSurveysButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new surveyPage(owner, user).surveyPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new SurveyPage(owner, user).surveyPanel));
             }
         });
         logoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new loginForm(owner).panelLogin));
+                SwingUtilities.invokeLater(() -> owner.showView(new LoginForm(owner).panelLogin));
             }
         });
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new helpPage(owner, user).panel1));
+                SwingUtilities.invokeLater(() -> owner.showView(new HelpPage(owner, user).panel1));
             }
         });
     }

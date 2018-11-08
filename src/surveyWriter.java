@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.Arrays;
 
 
-public class surveyWriter {
+public class SurveyWriter {
 
     public static boolean surveyWriter(String user, String[] answers, int surveyID) throws IOException {
         /* IOException = unexpected cases when writing/reading files

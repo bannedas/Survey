@@ -3,16 +3,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class qrRewardPage {
+public class QrPage {
     public JPanel panel1;
     private JButton backButton;
     private JLabel pictureLabel;
     private JLabel showThisQRCodeLabel;
 
-    final private mainFrame owner;
+    final private MainFrame owner;
     private String user;
 
-    public qrRewardPage(mainFrame owner, String user) {
+    public QrPage(MainFrame owner, String user) {
         this.user = user;
         this.owner = owner;
 
@@ -20,7 +20,7 @@ public class qrRewardPage {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new rewardPage(owner, user).rewardPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new RewardPage(owner, user).rewardPanel));
             }
         });
     }

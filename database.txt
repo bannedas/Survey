@@ -1,3 +1,4 @@
-admin 61646d696e Admin Male 6746
+admin 61646d696e Admin Male 8736
 monkey@student.aau.dk 61 Adam Male 0
 asd@student.aau.dk 313233 Asd Male 0
+asdfasd@student.aau.dk 313233313233 123123123 Other 0

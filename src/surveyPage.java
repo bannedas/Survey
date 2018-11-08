@@ -4,16 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
-public class surveyPage {
+public class SurveyPage {
     public JPanel surveyPanel;
     private JButton button1;
     private JButton button2;
     private JButton button3;
     private JButton backButton;
 
-    final private mainFrame owner;
+    final private MainFrame owner;
     private String user;
 
     private void renameButtons(File[] listOfFiles) throws IOException {
@@ -27,39 +26,37 @@ public class surveyPage {
                 button3.setVisible(false);
                 break;
             case 1: // 1 survey shown on first button. Other buttons not visible
-                button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
-                if (getInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[0].getName()))){
+                button1.setText(GetInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
+                if (GetInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[0].getName()))){
                     button1.setEnabled(false);
-            }
+                }
                 button2.setVisible(false);
                 button3.setVisible(false);
                 break;
             case 2: // 2 surveys shown on the first 2 buttons. last button not visible.
-
-                button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
-                button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[1].getName()),"name"));
-                if (getInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[0].getName()))){
+                button1.setText(GetInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
+                button1.setText(GetInfo.getInfo(Integer.valueOf(listOfFiles[1].getName()),"name"));
+                if (GetInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[0].getName()))){
                     button1.setEnabled(false);
                 }
-                if (getInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[1].getName()))){
+                if (GetInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[1].getName()))){
                     button2.setEnabled(false);
                 }
                 button3.setVisible(false);
                 break;
             case 3: // 3 surveys shown on all buttons.
-                button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
-                button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[1].getName()),"name"));
-                button1.setText(getInfo.getInfo(Integer.valueOf(listOfFiles[2].getName()),"name"));
-                if (getInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[0].getName()))){
+                button1.setText(GetInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
+                button1.setText(GetInfo.getInfo(Integer.valueOf(listOfFiles[1].getName()),"name"));
+                button1.setText(GetInfo.getInfo(Integer.valueOf(listOfFiles[2].getName()),"name"));
+                if (GetInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[0].getName()))){
                     button1.setEnabled(false);
                 }
-                if (getInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[1].getName()))){
+                if (GetInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[1].getName()))){
                     button2.setEnabled(false);
                 }
-                if (getInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[2].getName()))){
+                if (GetInfo.readUserDataBase(user,Integer.valueOf(listOfFiles[2].getName()))){
                     button3.setEnabled(false);
                 }
-
                 break;
             default: // too many surveys so error shown in first button which is disabled. Remaining buttons are set to not visible
                 button1.setText("<html><center>Too many files in <br>survey folder<br>Please check /survey</center></html>");
@@ -68,11 +65,10 @@ public class surveyPage {
                 button2.setVisible(false);
                 button3.setVisible(false);
                 break;
-
         }
     }
 
-    public surveyPage(mainFrame owner, String user) {
+    public SurveyPage(MainFrame owner, String user) {
         this.user = user;
         this.owner = owner;
 
@@ -93,12 +89,12 @@ public class surveyPage {
                 int surveyID = Integer.valueOf(listOfFiles[0].getName());
                 int surveyLength = 0;
                 try {
-                    surveyLength = Integer.valueOf(getInfo.getInfo(surveyID, "length"));
+                    surveyLength = Integer.valueOf(GetInfo.getInfo(surveyID, "length"));
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
                 String[] answerList = new String[surveyLength];
-                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,surveyID,1,answerList).panel));
+                SwingUtilities.invokeLater(() -> owner.showView(new ActiveSurveyPage(owner, user,surveyID,1,answerList).panel));
             }
         });
         button2.addActionListener(new ActionListener() {
@@ -107,12 +103,12 @@ public class surveyPage {
                 int surveyID = Integer.valueOf(listOfFiles[1].getName());
                 int surveyLength = 0;
                 try {
-                    surveyLength = Integer.valueOf(getInfo.getInfo(surveyID, "length"));
+                    surveyLength = Integer.valueOf(GetInfo.getInfo(surveyID, "length"));
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
                 String[] answerList = new String[surveyLength];
-                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,surveyID,1,answerList).panel));
+                SwingUtilities.invokeLater(() -> owner.showView(new ActiveSurveyPage(owner, user,surveyID,1,answerList).panel));
             }
         });
         button3.addActionListener(new ActionListener() {
@@ -121,18 +117,18 @@ public class surveyPage {
                 int surveyID = Integer.valueOf(listOfFiles[2].getName());
                 int surveyLength = 0;
                 try {
-                    surveyLength = Integer.valueOf(getInfo.getInfo(surveyID, "length"));
+                    surveyLength = Integer.valueOf(GetInfo.getInfo(surveyID, "length"));
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
                 String[] answerList = new String[surveyLength];
-                SwingUtilities.invokeLater(() -> owner.showView(new activeSurveyPage(owner, user,surveyID,1,answerList).panel));
+                SwingUtilities.invokeLater(() -> owner.showView(new ActiveSurveyPage(owner, user,surveyID,1,answerList).panel));
             }
         });
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new mainScreen(owner, user).panel1));
+                SwingUtilities.invokeLater(() -> owner.showView(new MainScreen(owner, user).panel1));
             }
         });
     }

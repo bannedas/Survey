@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class getInfo {
+public class GetInfo {
     public static String getInfo(String user, String info) throws IOException {
         String[] parts;
         switch (info) {

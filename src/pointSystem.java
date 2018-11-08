@@ -2,7 +2,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class pointSystem {
+public class PointSystem {
     public static boolean pointSystem (String username, int points) throws IOException {
         String database = "database.txt"; //database location (right now in the same folder as an app
         String tempDatabase = "tempdatabase.txt";

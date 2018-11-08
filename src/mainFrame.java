@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class mainFrame extends JFrame {
+public class MainFrame extends JFrame {
     private JPanel viewPanel; //makes panel inside JFrame
     /* simple explanation
     a car - JFrame
@@ -10,7 +10,7 @@ public class mainFrame extends JFrame {
     driver is the one that we will be changing and it is the one that you see when you open app
      */
 
-    public mainFrame() {
+    public MainFrame() {
         setTitle("Survey"); //set app title
         createGUI(); //call method createGUI
     }
@@ -22,7 +22,7 @@ public class mainFrame extends JFrame {
         center(); //call method center
         viewPanel = new JPanel(new BorderLayout()); //set layout mode for viewPanel
         add(viewPanel, BorderLayout.CENTER); //add viewPanel to center of app
-        showView(new loginForm(this).panelLogin); //call method showView
+        showView(new LoginForm(this).panelLogin); //call method showView
     }
 
     public void showView(JPanel panel) {

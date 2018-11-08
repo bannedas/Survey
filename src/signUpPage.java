@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class signUpPage {
+public class SignUpPage {
     public JPanel panelSignUp;
     private JPanel logoPanel;
     private JPanel panelLogin2;
@@ -17,15 +17,15 @@ public class signUpPage {
     private JTextField firstNameField;
     private JLabel firstNameLabel;
 
-    final private mainFrame owner;
+    final private MainFrame owner;
 
-    public signUpPage(mainFrame owner) {
+    public SignUpPage(MainFrame owner) {
         this.owner = owner;
 
 
         signUpButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new signUpPage(owner).panelSignUp));
+                SwingUtilities.invokeLater(() -> owner.showView(new SignUpPage(owner).panelSignUp));
                 String username = textField1.getText(); //get username from textfield
                 String password = String.valueOf(passwordField1.getPassword());  //get password from passwordfield
                 String firstName = firstNameField.getText(); // get first name from firstNameField
@@ -41,12 +41,12 @@ public class signUpPage {
                                 System.out.println(username.substring(username.length() - 15).toLowerCase());
 
                                 if ((username.substring(username.length() - 15).toLowerCase().equals("@student.aau.dk"))) {
-                                    if (loginCheck.loginCheck(username, password)) { //calling loginCheck.class method loginCheck. (checking all database lines if username exists
+                                    if (LoginCheck.loginCheck(username, password)) { //calling LoginCheck.class method LoginCheck. (checking all database lines if username exists
                                         JOptionPane.showMessageDialog(panelSignUp, "An account already exists with this email!", "Error", JOptionPane.ERROR_MESSAGE); // error message
                                     } else {
-                                        if (signupWriter.signupWriter(username, password, firstName, gender)) { //call class signupWriter, method signupWriter
+                                        if (SignupWriter.signupWriter(username, password, firstName, gender)) { //call class SignupWriter, method SignupWriter
                                             JOptionPane.showMessageDialog(panelSignUp, "Welcome " + username + "!\nYou can Login now", "Sign Up", JOptionPane.INFORMATION_MESSAGE); //if return true popup
-                                            SwingUtilities.invokeLater(() -> owner.showView(new loginForm(owner).panelLogin));
+                                            SwingUtilities.invokeLater(() -> owner.showView(new LoginForm(owner).panelLogin));
                                         }
                                     }
                                 } else {

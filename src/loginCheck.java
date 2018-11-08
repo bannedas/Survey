@@ -1,6 +1,9 @@
 import java.io.*;
 
-public class loginCheck {
+/**
+ *
+ */
+public class LoginCheck {
     public static boolean loginCheck(String username, String password) throws IOException {
         /* IOException = unexpected cases when writing/reading files
         it is required by JAVA and this is the best explanation i found on google:
@@ -25,7 +28,7 @@ public class loginCheck {
         while ((line = bufferedReader.readLine()) != null) { //while (read line is not equal empty line)
             String[] parts = line.split(" "); //split by spaces
             String name = parts[0].toLowerCase();
-            if (name.equals(username) && decryptPassword.decrypt(parts[1]).equals(password)) { //parts[0] = username, parts[1] = password
+            if (name.equals(username) && DecryptPassword.decrypt(parts[1]).equals(password)) { //parts[0] = username, parts[1] = password
                 bufferedReader.close();
                 return true; //class returns true and breaks while loop, so class stops
             }
