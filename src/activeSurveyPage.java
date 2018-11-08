@@ -129,6 +129,20 @@ public class ActiveSurveyPage {
                 SwingUtilities.invokeLater(() -> owner.showView(new ActiveSurveyPage(owner,user,surveyID,currentQuestion+1,answers).panel));//Send to next question page
             }
         });
+
+
+        answer2Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        answer3Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 
     private void progressBarUpdate(int questionNumber, int questionCount) {

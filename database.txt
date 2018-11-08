@@ -1,4 +1,42 @@
+<<<<<<< Updated upstream
 admin 61646d696e Admin Male 8736
+=======
+<<<<<<< Updated upstream
+admin 61646d696e Admin Male 6746
+=======
+<<<<<<< Updated upstream
+admin 61646d696e Admin Male 2266
+=======
+<<<<<<< Updated upstream
+admin 61646d696e Admin Male 766
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 monkey@student.aau.dk 61 Adam Male 0
+<<<<<<< Updated upstream
 asd@student.aau.dk 313233 Asd Male 0
+<<<<<<< Updated upstream
 asdfasd@student.aau.dk 313233313233 123123123 Other 0
+=======
+=======
+=======
+<<<<<<< Updated upstream
+admin 61646d696e Admin Male 1045
+<<<<<<< Updated upstream
+monkey@student.aau.dk 61 Adam Male 0
+=======
+=======
+<<<<<<< Updated upstream
+as as
+User pass Name Truck
+aa a a Male0
+=======
+a a
+abol18@student.aau.dk 12345
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+anders@student.aau.dk 3132333435 Anders Male 452
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
