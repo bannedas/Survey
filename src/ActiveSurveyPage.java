@@ -1,9 +1,19 @@
+/**
+ *
+ * DESCRIPTION
+ *
+ * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
+ * @version 1.0
+ * @release 19/12/2018
+ *
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+
 
 public class ActiveSurveyPage {
     public JPanel panel;

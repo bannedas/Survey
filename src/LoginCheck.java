@@ -1,8 +1,14 @@
-import java.io.*;
-
 /**
  *
+ * DESCRIPTION
+ *
+ * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
+ * @version 1.0
+ * @release 19/12/2018
+ *
  */
+import java.io.*;
+
 public class LoginCheck {
     public static boolean loginCheck(String username, String password) throws IOException {
         /* IOException = unexpected cases when writing/reading files
