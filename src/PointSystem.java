@@ -1,6 +1,6 @@
 /**
  *
- * DESCRIPTION
+ * PointSystem finds the given username in the database and add the given points to his or her point sum. If a negative integer is given the value is subtracted.
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0

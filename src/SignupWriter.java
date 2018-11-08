@@ -1,6 +1,6 @@
 /**
  *
- * DESCRIPTION
+ * SignUpWriter gets all the information given by the user when signing up for an account and saves it to the database.
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
