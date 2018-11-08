@@ -25,20 +25,12 @@ public class SignUpPage {
 
         signUpButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-<<<<<<< Updated upstream
                 SwingUtilities.invokeLater(() -> owner.showView(new SignUpPage(owner).panelSignUp));
                 String username = textField1.getText(); //get username from textfield
                 String password = String.valueOf(passwordField1.getPassword());  //get password from passwordfield
                 String firstName = firstNameField.getText(); // get first name from firstNameField
                 String gender = (String) genderDropdown.getSelectedItem(); // get gender from dropdown list
 
-=======
-                SwingUtilities.invokeLater(() -> owner.showView(new signUpPage(owner).panelSignUp));
-                String username = textField1.getText(); //Gets the username from the textfield.
-                String password = String.valueOf(passwordField1.getPassword());  //Gets the password from the passwordfield.
-                String firstName = firstNameField.getText(); //Gets the first name from the firstNameField.
-                String gender = (String) genderDropdown.getSelectedItem(); //Gets the gender from the dropdown list.
->>>>>>> Stashed changes
 
                 if (username.equals("") || password.equals("") || firstName.equals("")) {
                     JOptionPane.showMessageDialog(panelSignUp, "Please fill in all fields", "Error", JOptionPane.ERROR_MESSAGE); //Shows an error message to the user if the fields are not filled in.
