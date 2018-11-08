@@ -1,6 +1,6 @@
 /**
  *
- * DESCRIPTION
+ * EncryptPassword gets a string and converts it to hexadecimal representation. Then return converted string.
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
