@@ -1,14 +1,14 @@
 <<<<<<< Updated upstream
-admin 61646d696e Admin Male 9236
+admin 61646d696e Admin Male 11716
 =======
 <<<<<<< Updated upstream
-admin 61646d696e Admin Male 7246
+admin 61646d696e Admin Male 9726
 =======
 <<<<<<< Updated upstream
-admin 61646d696e Admin Male 2766
+admin 61646d696e Admin Male 5246
 =======
 <<<<<<< Updated upstream
-admin 61646d696e Admin Male 1266
+admin 61646d696e Admin Male 3746
 >>>>>>> Stashed changes
 >>>>>>> Stashed changes
 >>>>>>> Stashed changes
@@ -21,7 +21,7 @@ asdfasd@student.aau.dk 313233313233 123123123 Other 0
 =======
 =======
 <<<<<<< Updated upstream
-admin 61646d696e Admin Male 1545
+admin 61646d696e Admin Male 4025
 <<<<<<< Updated upstream
 monkey@student.aau.dk 61 Adam Male 0
 =======
