@@ -42,16 +42,14 @@ public class LoginForm {
                     JOptionPane.showMessageDialog(panelLogin, "Type in your username and password", "Error", JOptionPane.ERROR_MESSAGE); // error message if no username and/or password found in fields
                 } else {
                     try { //same as explained in LoginCheck or SignupWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
-                        if (LoginCheck.loginCheck(username, password)) { //calling LoginCheck.class method LoginCheck.
-
+                        if (LoginCheck.loginCheck(username, password) == 2) { //calling LoginCheck.class method LoginCheck.
+                            SwingUtilities.invokeLater(() -> owner.showView(new adminPanel(owner).panel1));
+                        } else if (LoginCheck.loginCheck(username, password) == 1) { //calling LoginCheck.class method LoginCheck.
                             SwingUtilities.invokeLater(() -> owner.showView(new MainScreen(owner, username).panel1));
-
-                            //JOptionPane.showMessageDialog(panelLogin, "Welcome " + username + "!", "Login", JOptionPane.INFORMATION_MESSAGE); //if return true popup
-                        } else {
-                            for(int i = 0; i < 100; i++) {
-                                JOptionPane.showMessageDialog(panelLogin, "Incorrect login or password", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
-                            }
-                            }
+                        } else if (LoginCheck.loginCheck(username, password) == 0) {
+                            JOptionPane.showMessageDialog(panelLogin, "Incorrect e-mail or password", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
+                            textField1.requestFocus();
+                        }
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
@@ -88,12 +86,11 @@ public class LoginForm {
                         textField1.requestFocus();
                     } else {
                         try { //same as explained in LoginCheck or SignupWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
-                            if (LoginCheck.loginCheck(username, password)) { //calling LoginCheck.class method LoginCheck.
-
+                            if (LoginCheck.loginCheck(username, password) == 2) { //calling LoginCheck.class method LoginCheck.
+                                SwingUtilities.invokeLater(() -> owner.showView(new adminPanel(owner).panel1));
+                            } else if (LoginCheck.loginCheck(username, password) == 1) { //calling LoginCheck.class method LoginCheck.
                                 SwingUtilities.invokeLater(() -> owner.showView(new MainScreen(owner, username).panel1));
-
-                                //JOptionPane.showMessageDialog(panelLogin, "Welcome " + username + "!", "Login", JOptionPane.INFORMATION_MESSAGE); //if return true popup
-                            } else {
+                            } else if (LoginCheck.loginCheck(username, password) == 0) {
                                 JOptionPane.showMessageDialog(panelLogin, "Incorrect e-mail or password", "Error", JOptionPane.ERROR_MESSAGE); //if return false popup
                                 textField1.requestFocus();
                             }

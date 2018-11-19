@@ -19,6 +19,7 @@ public class SignupWriter {
 
         String database = "database.txt"; //database location (right now in the same folder as an app
         int points = 0; //start with 0 points
+        boolean admin = false;
 
         FileWriter fileWriter = new FileWriter(database, true); //initialize filereader (this one opens files)
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter); //initialize bufferedreader (this one can read files)
@@ -27,7 +28,7 @@ public class SignupWriter {
 
         String firstName = name.substring(0, 1).toUpperCase() + name.substring(1);
 
-        bufferedWriter.write(username.toLowerCase() + " " + password + " " + firstName + " " + gender + " " + points); //write in database (username SPACE password etc.)
+        bufferedWriter.write(username.toLowerCase() + " " + password + " " + firstName + " " + gender + " " + points + " " + admin); //write in database (username SPACE password etc.)
         bufferedWriter.newLine(); //write \n
         bufferedWriter.close(); //close writer
         return true; //class returns false if all lines are read and no match found

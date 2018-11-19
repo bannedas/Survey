@@ -50,7 +50,7 @@ public class SignUpPage {
                                 System.out.println(username.substring(username.length() - 15).toLowerCase());
 
                                 if ((username.substring(username.length() - 15).toLowerCase().equals("@student.aau.dk"))) {
-                                    if (LoginCheck.loginCheck(username, password)) { //calling LoginCheck.class method LoginCheck. (checking all database lines if username exists
+                                    if (LoginCheck.loginCheck(username, password) == 1) { //calling LoginCheck.class method LoginCheck. (checking all database lines if username exists
                                         JOptionPane.showMessageDialog(panelSignUp, "An account already exists with this email!", "Error", JOptionPane.ERROR_MESSAGE); // error message
                                     } else {
                                         if (SignupWriter.signupWriter(username, password, firstName, gender)) { //call class SignupWriter, method SignupWriter

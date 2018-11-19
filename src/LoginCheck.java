@@ -10,7 +10,7 @@
 import java.io.*;
 
 public class LoginCheck {
-    public static boolean loginCheck(String username, String password) throws IOException {
+    public static int loginCheck(String username, String password) throws IOException {
         /* IOException = unexpected cases when writing/reading files
         it is required by JAVA and this is the best explanation i found on google:
         (throws IOException) specifies that the method may going to throws IOException and insist
@@ -35,11 +35,16 @@ public class LoginCheck {
             String[] parts = line.split(" "); //split by spaces
             String name = parts[0].toLowerCase();
             if (name.equals(username) && DecryptPassword.decrypt(parts[1]).equals(password)) { //parts[0] = username, parts[1] = password
+                if(parts[5].equals("true")) {
+                    bufferedReader.close();
+                    System.out.println(parts[5]);
+                    return 2;
+                }
                 bufferedReader.close();
-                return true; //class returns true and breaks while loop, so class stops
+                return 1; //class returns true and breaks while loop, so class stops
             }
         }
         bufferedReader.close();
-        return false; //class returns false if all lines are read and no match found
+        return 0; //class returns false if all lines are read and no match found
     }
 }
