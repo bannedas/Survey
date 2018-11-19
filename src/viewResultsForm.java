@@ -60,7 +60,6 @@ public class viewResultsForm {
         File folder = new File("survey");
         File[] listOfFiles = folder.listFiles();
 
-        $$$setupUI$$$();
         try {
             renameButtons(listOfFiles);
         } catch (IOException e) {
@@ -72,6 +71,7 @@ public class viewResultsForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SwingUtilities.invokeLater(() -> owner.showView(new quickChartResult(owner).mainPanel));
+                //SwingUtilities.invokeLater(() -> owner.showView(new ActiveSurveyPage(owner, user,surveyID,1,answerList).panel));
 
             }
         });
