@@ -46,19 +46,15 @@ public class ActiveSurveyPage {
         //Set the question text
         questionLabel.setText(questionList[0]);
         switch (questionList.length) { //Check the question for amount of answers to question
-
             case 3: // 2 answers shown on the first 2 buttons. last button not visible.
-
                 answer1Button.setText(questionList[1]);
                 answer2Button.setText(questionList[2]);
                 answer3Button.setVisible(false);
                 break;
             case 4: // 3 answers shown on all buttons.
-
                 answer1Button.setText(questionList[1]);
                 answer2Button.setText(questionList[2]);
                 answer3Button.setText(questionList[3]);
-
                 break;
             default: // too many or few answers; so error shown in first button which is disabled. Remaining buttons are set to not visible
                 answer1Button.setText("<html><center>Too many answers in <br>question line<br>Please check /survey</center></html>");

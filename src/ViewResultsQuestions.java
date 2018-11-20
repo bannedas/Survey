@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class viewResultsForm {
+public class ViewResultsQuestions {
     public JPanel mainPanel;
     private JButton button1;
     private JButton button2;
@@ -16,59 +16,39 @@ public class viewResultsForm {
 
     final private MainFrame owner;
 
-    private void renameButtons(File[] listOfFiles) throws IOException {
 
-        switch (listOfFiles.length) { //Check if how many surveys there are in the survey folder. max 3
-            case 0: // No survey. disable first button and set text to show "No surveys available". Remaining buttons are set to not be visible.
-                button1.setText("No questions in survey available");
-                button1.setEnabled(false);
-                button1.setVisible(true);
-                button2.setVisible(false);
-                button3.setVisible(false);
-                break;
-            case 1: // 1 survey shown on first button. Other buttons not visible
-                button1.setText(GetInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
-                button2.setVisible(false);
-                button3.setVisible(false);
-                break;
-            case 2: // 2 surveys shown on the first 2 buttons. last button not visible.
-                button1.setText(GetInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
-                button2.setText(GetInfo.getInfo(Integer.valueOf(listOfFiles[1].getName()),"name"));
-                button3.setVisible(false);
-                break;
-            case 3: // 3 surveys shown on all buttons.
-                button1.setText(GetInfo.getInfo(Integer.valueOf(listOfFiles[0].getName()),"name"));
-                button2.setText(GetInfo.getInfo(Integer.valueOf(listOfFiles[1].getName()),"name"));
-                button3.setText(GetInfo.getInfo(Integer.valueOf(listOfFiles[2].getName()),"name"));
-                break;
-            default: // too many surveys so error shown in first button which is disabled. Remaining buttons are set to not visible
-                button1.setText("<html><center>Too many files in <br>survey folder<br>Please check /survey</center></html>");
-                button1.setEnabled(false);
-                button1.setVisible(true);
-                button2.setVisible(false);
-                button3.setVisible(false);
-                break;
+
+    private void renameButtons(String surveyID) throws IOException {
+        String dir = "survey/" + surveyID; //database location (right now in the same folder as an app
+
+        FileReader fileReader = new FileReader(dir); //initialize filereader (this one opens files)
+        BufferedReader bufferedReader = new BufferedReader(fileReader); //initialize bufferedreader (this one can read files)
+
+        String line; //initialize string (later we assign it to readLine so it becomes 1 line of database
+
+        while ((line = bufferedReader.readLine()) != null) { //while (read line is not equal empty line)
+            String[] parts = line.split(":"); //split by spaces
+            String surveyName = parts[0];
+            button1.setText(surveyName);
         }
+        bufferedReader.close();
     }
 
-    public viewResultsForm(MainFrame owner) {
+    public ViewResultsQuestions(MainFrame owner) {
         super();
         this.owner = owner;
 
-        File folder = new File("survey");
-        File[] listOfFiles = folder.listFiles();
 
         try {
-            renameButtons(listOfFiles);
+            renameButtons("42");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new ViewResultsQuestions(owner).mainPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new quickChartResult(owner).mainPanel));
                 //SwingUtilities.invokeLater(() -> owner.showView(new ActiveSurveyPage(owner, user,surveyID,1,answerList).panel));
 
             }
@@ -76,19 +56,19 @@ public class viewResultsForm {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new ViewResultsQuestions(owner).mainPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new quickChartResult(owner).mainPanel));
             }
         });
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new ViewResultsQuestions(owner).mainPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new quickChartResult(owner).mainPanel));
             }
         });
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new adminPanel(owner).panel1));
+                SwingUtilities.invokeLater(() -> owner.showView(new viewResultsForm(owner).mainPanel));
             }
         });
     }
