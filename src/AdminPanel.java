@@ -1,10 +1,20 @@
+/**
+ *
+ * AdminPanel is shown when an admin is logged in. Presented with options available only to the administrator.
+ *
+ * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
+ * @version 1.0
+ * @release 19/12/2018
+ *
+ * @param owner owner of current instance running
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
-public class adminPanel {
+public class AdminPanel {
     public JPanel panel1;
     private JButton logoutButton;
     private JPanel backPanel;
@@ -18,7 +28,7 @@ public class adminPanel {
 
     final private MainFrame owner;
 
-    public adminPanel(MainFrame owner) {
+    public AdminPanel(MainFrame owner) {
         super();
         this.owner = owner;
 
@@ -27,13 +37,13 @@ public class adminPanel {
         viewResultsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new viewResultsForm(owner).mainPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new ViewResultsForm(owner).mainPanel));
             }
         });
         newSurveyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new newSurveyForm(owner).mainPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new NewSurveyForm(owner).mainPanel));
             }
         });
         logoutButton.addActionListener(new ActionListener() {

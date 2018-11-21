@@ -1,11 +1,12 @@
 /**
  *
- * DESCRIPTION
+ * The class SignUpPage gives the user the option of creating a user by entering an unused aau e-mail, password, name and gender.
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
  *
+ * @param owner current owner of instance running
  */
 import javax.swing.*;
 import java.awt.*;

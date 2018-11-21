@@ -6,6 +6,12 @@
  * @version 1.0
  * @release 19/12/2018
  *
+ * @param surveyID          internal ID of a survey
+ * @param questionNumber    which line of survey file to get possible answers for buttons
+ * @param owner             owner of current instance running
+ * @param user              the current user credentials
+ * @param currentQuestion   which line of survey file to get question from
+ * @param answers           the numeric value of the answers given during survey by the user
  */
 import javax.swing.*;
 import java.awt.*;

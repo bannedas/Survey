@@ -1,10 +1,13 @@
 /**
  *
- * The class MainScreen c
+ * The class MainScreen contains buttons to let the user navigate the different menus or simply log out.
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
+ *
+ * @param owner current owner of instance running
+ * @param user  the current user credentials
  *
  */
 import javax.swing.*;

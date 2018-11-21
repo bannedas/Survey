@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
-public class quickChartResult {
+public class QuickChartResult {
 
     final private MainFrame owner;
     private JButton backButton;
@@ -25,7 +25,7 @@ public class quickChartResult {
     private int sID;
     private int questionNum;
 
-    public quickChartResult(MainFrame owner, int surveyID, int questionNumber, String question, String answer1, String answer2, String answer3) {
+    public QuickChartResult(MainFrame owner, int surveyID, int questionNumber, String question, String answer1, String answer2, String answer3) {
         super();
         this.owner = owner;
 

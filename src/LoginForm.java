@@ -6,6 +6,8 @@
  * @version 1.0
  * @release 19/12/2018
  *
+ * @param owner current owner of instance running
+ *
  */
 import javax.swing.*;
 import java.awt.*;
@@ -43,7 +45,7 @@ public class LoginForm {
                 } else {
                     try { //same as explained in LoginCheck or SignupWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
                         if (LoginCheck.loginCheck(username, password) == 2) { //calling LoginCheck.class method LoginCheck.
-                            SwingUtilities.invokeLater(() -> owner.showView(new adminPanel(owner).panel1));
+                            SwingUtilities.invokeLater(() -> owner.showView(new AdminPanel(owner).panel1));
                         } else if (LoginCheck.loginCheck(username, password) == 1) { //calling LoginCheck.class method LoginCheck.
                             SwingUtilities.invokeLater(() -> owner.showView(new MainScreen(owner, username).panel1));
                         } else if (LoginCheck.loginCheck(username, password) == 0) {
@@ -87,7 +89,7 @@ public class LoginForm {
                     } else {
                         try { //same as explained in LoginCheck or SignupWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
                             if (LoginCheck.loginCheck(username, password) == 2) { //calling LoginCheck.class method LoginCheck.
-                                SwingUtilities.invokeLater(() -> owner.showView(new adminPanel(owner).panel1));
+                                SwingUtilities.invokeLater(() -> owner.showView(new AdminPanel(owner).panel1));
                             } else if (LoginCheck.loginCheck(username, password) == 1) { //calling LoginCheck.class method LoginCheck.
                                 SwingUtilities.invokeLater(() -> owner.showView(new MainScreen(owner, username).panel1));
                             } else if (LoginCheck.loginCheck(username, password) == 0) {

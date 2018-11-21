@@ -9,7 +9,7 @@
  * @param user      the current user credentials
  * @param info      a string describing which switch case will be used
  * @param surveyID  internal ID of a survey
- * @param question  which line of survey to get question from
+ * @param question  which line of survey file to get question from
  * @return          dependent of which overloaded method is called.
  */
 import java.io.BufferedReader;

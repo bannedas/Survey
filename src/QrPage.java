@@ -1,11 +1,13 @@
 /**
  *
- * DESCRIPTION
+ * The class QrPage shows the QR code that represents the selected reward.
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
  *
+ * @param owner current owner of instance running
+ * @param user  the current user credentials
  */
 import javax.swing.*;
 import java.awt.*;

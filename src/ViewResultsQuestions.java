@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -61,7 +60,7 @@ public class ViewResultsQuestions {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new quickChartResult(owner, surveyID, 1, question[0], answer1[0], answer2[0], answer3[0]).mainPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new QuickChartResult(owner, surveyID, 1, question[0], answer1[0], answer2[0], answer3[0]).mainPanel));
                 //SwingUtilities.invokeLater(() -> owner.showView(new ActiveSurveyPage(owner, user,surveyID,1,answerList).panel));
 
             }
@@ -69,19 +68,19 @@ public class ViewResultsQuestions {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new quickChartResult(owner, surveyID, 2, question[1], answer1[1], answer2[1], answer3[1]).mainPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new QuickChartResult(owner, surveyID, 2, question[1], answer1[1], answer2[1], answer3[1]).mainPanel));
             }
         });
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new quickChartResult(owner, surveyID, 3, question[2], answer1[2], answer2[2], answer3[2]).mainPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new QuickChartResult(owner, surveyID, 3, question[2], answer1[2], answer2[2], answer3[2]).mainPanel));
             }
         });
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new viewResultsForm(owner).mainPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new ViewResultsForm(owner).mainPanel));
             }
         });
     }
