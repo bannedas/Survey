@@ -34,6 +34,7 @@ public class QuickChartResult {
     private JPanel backPanel;
     private JPanel resultPanel;
     private JPanel chartResult;
+    private JLabel chartQuestion;
 
     private String chartTitle;
     private String chartAnswer1;
@@ -56,6 +57,7 @@ public class QuickChartResult {
         chartAnswer1 = answer1;
         chartAnswer2 = answer2;
         chartAnswer3 = answer3;
+        chartQuestion.setText(chartTitle);
 
         try {
             setCharInfo(surveyID);
@@ -101,7 +103,7 @@ public class QuickChartResult {
             br.close(); // close stream
         }
 
-        PieChart question1Chart = new PieChartBuilder().width(250).height(400).title(chartTitle).build();
+        PieChart question1Chart = new PieChartBuilder().width(250).height(400).title("").build();
         chartResult = new XChartPanel<>(question1Chart);
         Color[] question1Colors = new Color[]{
                 new Color(220, 53, 34),

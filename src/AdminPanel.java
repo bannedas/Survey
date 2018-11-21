@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AdminPanel {
-    public JPanel panel1;
+    public JPanel mainPanel;
     private JButton logoutButton;
     private JPanel backPanel;
     private JButton viewResultsButton;
@@ -24,6 +24,7 @@ public class AdminPanel {
     private JLabel pointsLabel;
     private JPanel menuPanel;
     private JPanel infoPanel;
+    private JButton deleteSurveyButton;
 
 
     final private MainFrame owner;
@@ -52,6 +53,12 @@ public class AdminPanel {
                 SwingUtilities.invokeLater(() -> owner.showView(new LoginForm(owner).panelLogin));
             }
         });
+        deleteSurveyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(() -> owner.showView(new SurveyDelete(owner).mainPanel));
+            }
+        });
     }
 
     private void createUIComponents() {
@@ -75,15 +82,15 @@ public class AdminPanel {
     private void $$$setupUI$$$() {
         final JPanel panel2 = new JPanel();
         panel2.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
-        panel1 = new JPanel();
-        panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
-        panel1.setBackground(new Color(-7171951));
-        panel1.setForeground(new Color(-7171951));
-        panel2.add(panel1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        mainPanel.setBackground(new Color(-7171951));
+        mainPanel.setForeground(new Color(-7171951));
+        panel2.add(mainPanel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         final JPanel panel3 = new JPanel();
         panel3.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(4, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel3.setBackground(new Color(-7171951));
-        panel1.add(panel3, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, new Dimension(300, 600), null, 0, false));
+        mainPanel.add(panel3, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, new Dimension(300, 600), null, 0, false));
         backPanel = new JPanel();
         backPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         backPanel.setBackground(new Color(-7237487));

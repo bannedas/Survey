@@ -28,7 +28,7 @@ public class NewSurveyForm {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new AdminPanel(owner).panel1));
+                SwingUtilities.invokeLater(() -> owner.showView(new AdminPanel(owner).mainPanel));
             }
         });
     }

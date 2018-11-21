@@ -32,6 +32,7 @@ public class GetInfo {
         }
         return user;
     }
+
     public static String getInfo(int surveyID, String info) throws IOException {
         String[] parts;
         switch (info)   {
@@ -49,10 +50,12 @@ public class GetInfo {
         }
         return "error";
     }
+
     public static String[] getInfo(int surveyID, int question) throws IOException {
         String[] parts = readDatabase(surveyID,question);
         return parts;
     }
+
     private static String readDatabase(String user) throws IOException {
         String dir = "database.txt"; //database location (right now in the same folder as an app
         FileReader fileReader = new FileReader(dir); //initialize filereader (this one opens files)
@@ -65,8 +68,10 @@ public class GetInfo {
                 return line; //class returns true and breaks while loop, so class stops
             }
         }
-    return user;
+        bufferedReader.close();
+        return user;
     }
+
     public static Boolean readUserDataBase(String user, int surveyID) throws IOException {
         String dir = "userdatabase/" + user + ".txt"; //database location (right now in the same folder as an app
         File f = new File(dir);
@@ -85,6 +90,7 @@ public class GetInfo {
         }
         return false;
     }
+
     private static String[] readDatabase(int surveyID, int question) throws IOException { //Reads såecified survey file and returns specified question from that file.
         String dir = "survey/"+surveyID; //database location (right now in the survey folder as an app
         FileReader fileReader = new FileReader(dir); //initialize filereader (this one opens files)
@@ -99,6 +105,7 @@ public class GetInfo {
             }
             currentLine += 1;
         }
+        bufferedReader.close();
         return parts;
     }
 
@@ -106,8 +113,9 @@ public class GetInfo {
         String dir = "survey/"+surveyID; //database location (right now in the survey folder as an app
         FileReader fileReader = new FileReader(dir); //initialize filereader (this one opens files)
         BufferedReader bufferedReader = new BufferedReader(fileReader); //initialize bufferedreader (this one can read files)
-
-        return bufferedReader.readLine(); //return first line of specified file
+        String line = bufferedReader.readLine();
+        bufferedReader.close();
+        return line; //return first line of specified file
 
     }
 

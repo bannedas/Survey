@@ -39,8 +39,6 @@ public class SurveyWriter {
         bufferedWriter.write(surveyID+" "+String.join(" ", Arrays.asList(answers))); //write in database
         bufferedWriter.newLine(); //write \n
 
-
-
         bufferedWriter.close(); //close writer
         return true;
     }
