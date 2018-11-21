@@ -15,8 +15,10 @@ public class ViewResultsQuestions {
     private JButton backButton;
 
     final private MainFrame owner;
-
-
+    String[] question = new String[3];
+    String[] answer1 = new String[3];
+    String[] answer2 = new String[3];
+    String[] answer3 = new String[3];
 
     private void renameButtons(String surveyID) throws IOException {
         String dir = "survey/" + surveyID; //database location (right now in the same folder as an app
@@ -25,22 +27,33 @@ public class ViewResultsQuestions {
         BufferedReader bufferedReader = new BufferedReader(fileReader); //initialize bufferedreader (this one can read files)
 
         String line; //initialize string (later we assign it to readLine so it becomes 1 line of database
+        String[] questionLines = new String[4];
 
+        int counter = 0;
         while ((line = bufferedReader.readLine()) != null) { //while (read line is not equal empty line)
-            String[] parts = line.split(":"); //split by spaces
-            String surveyName = parts[0];
-            button1.setText(surveyName);
+            questionLines[counter] = line;
+            counter++;
         }
         bufferedReader.close();
+        for(int i = 1; i < questionLines.length; i++) {
+            String[] parts = questionLines[i].split(":"); //split by spaces
+            question[i-1] = parts[0];
+            answer1[i-1] = parts[1];
+            answer2[i-1] = parts[2];
+            answer3[i-1] = parts[3];
+        }
+        button1.setText(question[0]);
+        button2.setText(question[1]);
+        button3.setText(question[2]);
     }
 
-    public ViewResultsQuestions(MainFrame owner) {
+    public ViewResultsQuestions(MainFrame owner, int surveyID) {
         super();
         this.owner = owner;
 
 
         try {
-            renameButtons("42");
+            renameButtons(Integer.toString(surveyID));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -48,7 +61,7 @@ public class ViewResultsQuestions {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new quickChartResult(owner).mainPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new quickChartResult(owner, surveyID, 1, question[0], answer1[0], answer2[0], answer3[0]).mainPanel));
                 //SwingUtilities.invokeLater(() -> owner.showView(new ActiveSurveyPage(owner, user,surveyID,1,answerList).panel));
 
             }
@@ -56,13 +69,13 @@ public class ViewResultsQuestions {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new quickChartResult(owner).mainPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new quickChartResult(owner, surveyID, 2, question[1], answer1[1], answer2[1], answer3[1]).mainPanel));
             }
         });
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new quickChartResult(owner).mainPanel));
+                SwingUtilities.invokeLater(() -> owner.showView(new quickChartResult(owner, surveyID, 3, question[2], answer1[2], answer2[2], answer3[2]).mainPanel));
             }
         });
         backButton.addActionListener(new ActionListener() {

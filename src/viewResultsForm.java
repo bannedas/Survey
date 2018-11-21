@@ -68,7 +68,8 @@ public class viewResultsForm {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new ViewResultsQuestions(owner).mainPanel));
+                int surveyID = Integer.valueOf(listOfFiles[0].getName());
+                SwingUtilities.invokeLater(() -> owner.showView(new ViewResultsQuestions(owner, surveyID).mainPanel));
                 //SwingUtilities.invokeLater(() -> owner.showView(new ActiveSurveyPage(owner, user,surveyID,1,answerList).panel));
 
             }
@@ -76,13 +77,15 @@ public class viewResultsForm {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new ViewResultsQuestions(owner).mainPanel));
+                int surveyID = Integer.valueOf(listOfFiles[1].getName());
+                SwingUtilities.invokeLater(() -> owner.showView(new ViewResultsQuestions(owner, surveyID).mainPanel));
             }
         });
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(() -> owner.showView(new ViewResultsQuestions(owner).mainPanel));
+                int surveyID = Integer.valueOf(listOfFiles[2].getName());
+                SwingUtilities.invokeLater(() -> owner.showView(new ViewResultsQuestions(owner, surveyID).mainPanel));
             }
         });
         backButton.addActionListener(new ActionListener() {
