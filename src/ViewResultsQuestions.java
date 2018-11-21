@@ -1,3 +1,14 @@
+/**
+ *
+ * The class ViewResultsQuestions shows the admin which questions are currently available to see information on from selected survey.
+ *
+ * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
+ * @version 1.0
+ * @release 19/12/2018
+ *
+ * @param owner     current owner of instance running
+ * @param surveyID  internal ID of a survey
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

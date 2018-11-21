@@ -1,3 +1,23 @@
+/**
+ *
+ * The class QuickChartResult is where an admin can see a visual overview of answers for a specific question.
+ *
+ * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
+ * @version 1.0
+ * @release 19/12/2018
+ *
+ * @param owner current owner of instance running
+ *
+ *
+ * @param surveyID          internal ID of a survey
+ * @param questionNumber    which line of survey file to get possible answers for buttons
+ * @param owner             owner of current instance running
+ * @param question          the question the current chart summarizes
+ * @param answer1           ID for first answer for current question
+ * @param answer2           ID for second answer for current question
+ * @param answer3           ID for third answer for current question
+*/
+
 import org.knowm.xchart.*;
 import org.knowm.xchart.style.Styler;
 import javax.swing.*;
