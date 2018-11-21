@@ -6,6 +6,7 @@
  * @version 1.0
  * @release 19/12/2018
  *
+ * @param panel Jpanel to be shown on GUI
  */
 import javax.swing.*;
 import java.awt.*;

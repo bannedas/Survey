@@ -6,6 +6,8 @@
  * @version 1.0
  * @release 19/12/2018
  *
+ * @param hex   the encrypted password which is the password in hexidecimal representation
+ * @return      the decrypted password
  */
 public class DecryptPassword {
     public static String decrypt(String hex) { //get string input

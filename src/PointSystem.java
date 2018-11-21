@@ -6,6 +6,9 @@
  * @version 1.0
  * @release 19/12/2018
  *
+ * @param username  e-mail address given as username by user
+ * @param points    how many points are to be given or subtracted
+ * @return          True, only False if there are any errors or insufficient points
  */
 import java.io.*;
 import java.nio.file.Files;

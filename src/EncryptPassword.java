@@ -6,6 +6,9 @@
  * @version 1.0
  * @release 19/12/2018
  *
+ * @param strTarget the password in plaintext
+ * @return          hexadecimal representation of the given plaintext
+ *
  */
 public class EncryptPassword {
     public static String Encrypt(String strTarget) { //get string

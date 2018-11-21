@@ -6,6 +6,10 @@
  * @version 1.0
  * @release 19/12/2018
  *
+ * @param user      the current user credentials
+ * @param answers   the numeric value of the answers given during survey by the user
+ * @param surveyID  internal ID of a survey
+ * @return          True
  */
 import java.io.*;
 import java.util.Arrays;
@@ -38,6 +42,6 @@ public class SurveyWriter {
 
 
         bufferedWriter.close(); //close writer
-        return true; //class returns false if all lines are read and no match found
+        return true;
     }
 }

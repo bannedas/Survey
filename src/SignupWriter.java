@@ -6,6 +6,11 @@
  * @version 1.0
  * @release 19/12/2018
  *
+ * @param username  e-mail address given as username by user
+ * @param password  password given in password field by user
+ * @param name      name given by user at sign-up
+ * @param gender    the given gender of the user
+ * @return          True
  */
 import java.io.*;
 
@@ -31,6 +36,6 @@ public class SignupWriter {
         bufferedWriter.write(username.toLowerCase() + " " + password + " " + firstName + " " + gender + " " + points + " " + admin); //write in database (username SPACE password etc.)
         bufferedWriter.newLine(); //write \n
         bufferedWriter.close(); //close writer
-        return true; //class returns false if all lines are read and no match found
+        return true;
     }
 }

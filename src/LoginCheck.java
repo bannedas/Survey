@@ -6,6 +6,9 @@
  * @version 1.0
  * @release 19/12/2018
  *
+ * @param username  e-mail address given as username by user
+ * @param password  password given in password field by user
+ * @return          True if the given user exists in database else False
  */
 import java.io.*;
 
