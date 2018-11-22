@@ -1,3 +1,4 @@
 admin 61646d696e Admin Male 11716 true
-test 74657374 Test Truck 955
-paulius@student.aau.dk 7061756c697573 Paulius Male 479
+test 74657374 Test Truck 925false
+paulius@student.aau.dk 313233313233 123123 Male 0 false
+teeeest@student.aau.dk 313233313233 123123 Male 0 false

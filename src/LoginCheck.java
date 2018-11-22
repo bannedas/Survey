@@ -40,7 +40,6 @@ public class LoginCheck {
             if (name.equals(username) && DecryptPassword.decrypt(parts[1]).equals(password)) { //parts[0] = username, parts[1] = password
                 if(parts[5].equals("true")) {
                     bufferedReader.close();
-                    System.out.println(parts[5]);
                     return 2;
                 }
                 bufferedReader.close();

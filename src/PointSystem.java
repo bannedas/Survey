@@ -45,7 +45,7 @@ public class PointSystem {
                 }
                 temp += points;
                 String addedPoints = String.valueOf(temp);
-                bufferedWriter.write(parts[0] + " " + parts[1] + " " + parts[2] + " " + parts[3] + " " + addedPoints); //write in database (username SPACE password etc.)
+                bufferedWriter.write(parts[0] + " " + parts[1] + " " + parts[2] + " " + parts[3] + " " + addedPoints + "false"); //write in database (username SPACE password etc.)
                 bufferedWriter.newLine();
             } else {
                 bufferedWriter.write(line);
