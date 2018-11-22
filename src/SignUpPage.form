@@ -121,7 +121,6 @@
               <model>
                 <item value="Male"/>
                 <item value="Female"/>
-                <item value="Truck"/>
                 <item value="Other"/>
               </model>
             </properties>
