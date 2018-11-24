@@ -32,6 +32,8 @@ public class AdminPanel {
         super();
         this.owner = owner;
 
+        newSurveyButton.setEnabled(false);
+
         nameLabel.setText("Hello administrator");
 
         viewResultsButton.addActionListener(new ActionListener() {

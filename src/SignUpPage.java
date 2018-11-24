@@ -26,6 +26,7 @@ public class SignUpPage {
     private JLabel genderLabel;
     private JTextField firstNameField;
     private JLabel firstNameLabel;
+    private JButton backButton;
 
     final private MainFrame owner;
 
@@ -84,6 +85,12 @@ public class SignUpPage {
                 } else {
                     passwordField1.setEchoChar('*'); //hide input with *
                 }
+            }
+        });
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(() -> owner.showView(new LoginForm(owner).panelLogin));
             }
         });
     }
