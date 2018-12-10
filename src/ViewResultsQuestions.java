@@ -1,3 +1,11 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  *
  * The class ViewResultsQuestions shows the admin which questions are currently available to see information on from selected survey.
@@ -8,14 +16,8 @@
  *
  * @param owner     current owner of instance running
  * @param surveyID  internal ID of a survey
+ * @return displays question result menu
  */
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class ViewResultsQuestions {
     public JPanel mainPanel;

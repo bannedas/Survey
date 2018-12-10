@@ -1,8 +1,16 @@
+import org.knowm.xchart.*;
+import org.knowm.xchart.style.Styler;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+
 /**
  *
  * The class QuickChartResult is where an admin can see a visual overview of answers for a specific question.
  *
- * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
+ * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Bren&oslash;e Olesen
  * @version 1.0
  * @release 19/12/2018
  *
@@ -16,15 +24,7 @@
  * @param answer1           ID for first answer for current question
  * @param answer2           ID for second answer for current question
  * @param answer3           ID for third answer for current question
-*/
-
-import org.knowm.xchart.*;
-import org.knowm.xchart.style.Styler;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.*;
+ */
 
 public class QuickChartResult {
 

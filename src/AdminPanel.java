@@ -25,7 +25,6 @@ public class AdminPanel {
     private JPanel infoPanel;
     private JButton deleteSurveyButton;
 
-
     final private MainFrame owner;
 
     public AdminPanel(MainFrame owner) {
