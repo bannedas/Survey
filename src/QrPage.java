@@ -1,3 +1,7 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  *
  * The class QrPage shows the QR code that represents the selected reward.
@@ -5,15 +9,7 @@
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
- *
- * @param owner current owner of instance running
- * @param user  the current user credentials
  */
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 public class QrPage {
     public JPanel panel1;
     private JButton backButton;
@@ -23,6 +19,11 @@ public class QrPage {
     final private MainFrame owner;
     private String user;
 
+    /**
+     *
+     * @param owner current owner of instance running
+     * @param user  the current user credentials
+     */
     public QrPage(MainFrame owner, String user) {
         this.user = user;
         this.owner = owner;

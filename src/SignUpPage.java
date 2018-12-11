@@ -1,3 +1,8 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 /**
  *
  * The class SignUpPage gives the user the option of creating a user by entering an unused aau e-mail, password, name and gender.
@@ -5,15 +10,7 @@
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
- *
- * @param owner current owner of instance running
  */
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-
 public class SignUpPage {
     public JPanel panelSignUp;
     private JPanel logoPanel;
@@ -30,6 +27,10 @@ public class SignUpPage {
 
     final private MainFrame owner;
 
+    /**
+     *
+     * @param owner current owner of instance running
+     */
     public SignUpPage(MainFrame owner) {
         this.owner = owner;
 
@@ -55,7 +56,7 @@ public class SignUpPage {
                                     if (LoginCheck.loginCheck(username, password) == 1) { //calling LoginCheck.class method LoginCheck. (checking all database lines if username exists
                                         JOptionPane.showMessageDialog(panelSignUp, "An account already exists with this email!", "Error", JOptionPane.ERROR_MESSAGE); // error message
                                     } else {
-                                        if (SignupWriter.signupWriter(username, password, firstName, gender)) { //call class SignupWriter, method SignupWriter
+                                        if (SignUpWriter.signupWriter(username, password, firstName, gender)) { //call class SignUpWriter, method SignUpWriter
                                             JOptionPane.showMessageDialog(panelSignUp, "Welcome " + username + "!\nYou can Login now", "Sign Up", JOptionPane.INFORMATION_MESSAGE); //if return true popup
                                             SwingUtilities.invokeLater(() -> owner.showView(new LoginForm(owner).panelLogin));
                                         }

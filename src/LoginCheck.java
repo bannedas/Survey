@@ -1,3 +1,4 @@
+import java.io.*;
 /**
  *
  * LoginCheck matches the given username and password and return true only if they match what is in the database.
@@ -5,14 +6,15 @@
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
- *
- * @param username  e-mail address given as username by user
- * @param password  password given in password field by user
- * @return          True if the given user exists in database else False
  */
-import java.io.*;
-
 public class LoginCheck {
+    /**
+     *
+     * @param username e-mail address given as username by user
+     * @param password password given in password field by user
+     * @return True if the given user exists in database else False
+     * @throws IOException dealing with input/output, so using exception in case of failure
+     */
     public static int loginCheck(String username, String password) throws IOException {
         /* IOException = unexpected cases when writing/reading files
         it is required by JAVA and this is the best explanation i found on google:

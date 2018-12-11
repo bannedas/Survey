@@ -13,17 +13,6 @@ import java.io.*;
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Bren&oslash;e Olesen
  * @version 1.0
  * @release 19/12/2018
- *
- * @param owner current owner of instance running
- *
- *
- * @param surveyID          internal ID of a survey
- * @param questionNumber    which line of survey file to get possible answers for buttons
- * @param owner             owner of current instance running
- * @param question          the question the current chart summarizes
- * @param answer1           ID for first answer for current question
- * @param answer2           ID for second answer for current question
- * @param answer3           ID for third answer for current question
  */
 
 public class QuickChartResult {
@@ -46,6 +35,16 @@ public class QuickChartResult {
     private int sID;
     private int questionNum;
 
+    /**
+     *
+     * @param surveyID          internal ID of a survey
+     * @param questionNumber    which line of survey file to get possible answers for buttons
+     * @param owner             owner of current instance running
+     * @param question          the question the current chart summarizes
+     * @param answer1           ID for first answer for current question
+     * @param answer2           ID for second answer for current question
+     * @param answer3           ID for third answer for current question
+     */
     public QuickChartResult(MainFrame owner, int surveyID, int questionNumber, String question, String answer1, String answer2, String answer3) {
         super();
         this.owner = owner;
@@ -59,12 +58,6 @@ public class QuickChartResult {
         chartAnswer3 = answer3;
         chartQuestion.setText(chartTitle);
 
-        try {
-            setCharInfo(surveyID);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -73,10 +66,12 @@ public class QuickChartResult {
         });
     }
 
-    private void setCharInfo(int surveyID) throws IOException {
-
-    }
-
+    /**
+     * Method reads userdatabase folder and displays all user answers graphically using PIE graph
+     * Xchart library is used to create custom charts
+     *
+     * @throws IOException dealing with input/output, so using exception in case of failure
+     */
     private void createUIComponents() throws IOException {
         File userFolder = new File("userdatabase"); // path to folder
         //File surveyFolder = new File("survey");

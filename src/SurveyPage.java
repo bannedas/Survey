@@ -1,3 +1,9 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 /**
  *
  * The class SurveyPage shows the user which surveys are currently available to take. If they are already completed by current user they will be visible, but not usable.
@@ -5,16 +11,7 @@
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
- *
- * @param listOfFiles   is the list of files in the survey folder. The names of the surveys are their ID number.
  */
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-
 public class SurveyPage {
     public JPanel surveyPanel;
     private JButton button1;
@@ -25,6 +22,11 @@ public class SurveyPage {
     final private MainFrame owner;
     private String user;
 
+    /**
+     *
+     * @param listOfFiles is the list of files in the survey folder. The names of the surveys are their ID number.
+     * @throws IOException
+     */
     private void renameButtons(File[] listOfFiles) throws IOException {
 
         switch (listOfFiles.length) { //Check if how many surveys there are in the survey folder. max 3
@@ -78,6 +80,11 @@ public class SurveyPage {
         }
     }
 
+    /**
+     *
+     * @param owner current owner of instance running
+     * @param user user credentials
+     */
     public SurveyPage(MainFrame owner, String user) {
         this.user = user;
         this.owner = owner;

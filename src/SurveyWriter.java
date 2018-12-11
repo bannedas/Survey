@@ -1,3 +1,5 @@
+import java.io.*;
+import java.util.Arrays;
 /**
  *
  * The class SurveyWriter opens the database and writes the SurveyID(the survey) the user picked and writes the answers of the user.
@@ -5,18 +7,17 @@
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
- *
- * @param user      the current user credentials
- * @param answers   the numeric value of the answers given during survey by the user
- * @param surveyID  internal ID of a survey
- * @return          True
  */
-import java.io.*;
-import java.util.Arrays;
-
 
 public class SurveyWriter {
-
+    /**
+     *
+     * @param user the current user credentials
+     * @param answers the numeric value of the answers given during survey by the user
+     * @param surveyID internal ID of a survey
+     * @return true
+     * @throws IOException dealing with input/output, so using exception in case of failure
+     */
     public static boolean surveyWriter(String user, String[] answers, int surveyID) throws IOException {
         /* IOException = unexpected cases when writing/reading files
         it is required by JAVA and this is the best explanation i found on google:

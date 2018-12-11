@@ -1,3 +1,9 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 /**
  *
  * The class ViewResultsForm shows the admin which surveys are currently available to see information on.
@@ -5,16 +11,7 @@
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
- *
- * @param listOfFiles   is the list of files in the survey folder. The names of the surveys are their ID number.
  */
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-
 public class ViewResultsForm {
     public JPanel mainPanel;
     private JButton button1;
@@ -24,6 +21,11 @@ public class ViewResultsForm {
 
     final private MainFrame owner;
 
+    /**
+     *
+     * @param listOfFiles is the list of files in the survey folder. The names of the surveys are their ID number.
+     * @throws IOException dealing with input/output, so using exception in case of failure
+     */
     private void renameButtons(File[] listOfFiles) throws IOException {
 
         switch (listOfFiles.length) { //Check if how many surveys there are in the survey folder. max 3
@@ -59,6 +61,10 @@ public class ViewResultsForm {
         }
     }
 
+    /**
+     *
+     * @param owner current owner of instance running
+     */
     public ViewResultsForm(MainFrame owner) {
         super();
         this.owner = owner;

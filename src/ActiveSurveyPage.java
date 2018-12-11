@@ -1,3 +1,9 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 /**
  *
  * ActiveSurveyPage is shown when doing a survey and updates the butons corresponding to the current question of the given survey. It also handles answers to be saved to the userdatabase.
@@ -5,21 +11,7 @@
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
- *
- * @param surveyID          internal ID of a survey
- * @param questionNumber    which line of survey file to get possible answers for buttons
- * @param owner             owner of current instance running
- * @param user              the current user credentials
- * @param currentQuestion   which line of survey file to get question from
- * @param answers           the numeric value of the answers given during survey by the user
  */
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-
 
 public class ActiveSurveyPage {
     public JPanel panel;
@@ -40,12 +32,22 @@ public class ActiveSurveyPage {
     final private MainFrame owner;
     private String user;
 
+    /**
+     * Display finished text and hide button 2 and 3
+     */
     private void finishSurvey() {
         questionLabel.setText("Survey complete");
         answer1Button.setText("Finish and claim points");
         answer2Button.setVisible(false);
         answer3Button.setVisible(false);
     }
+
+    /**
+     *
+     * @param surveyID internal ID of a survey
+     * @param questionNumber which line of survey file to get possible answers for buttons
+     * @throws IOException dealing with input/output, so using exception in case of failure
+     */
     private void renameButtons(int surveyID,int questionNumber) throws IOException {
         File folder = new File("survey");
         String[] questionList = GetInfo.getInfo(surveyID,questionNumber);
@@ -72,6 +74,15 @@ public class ActiveSurveyPage {
 
         }
     }
+
+    /**
+     *
+     * @param owner owner of current instance running
+     * @param user the current user credentials
+     * @param surveyID internal ID of a survey
+     * @param currentQuestion which line of survey file to get question from
+     * @param answers the numeric value of the answers given during survey by the user
+     */
     public ActiveSurveyPage(MainFrame owner, String user, int surveyID, int currentQuestion, String[] answers) {
         super();
         this.user = user;
@@ -157,6 +168,11 @@ public class ActiveSurveyPage {
         });
     }
 
+    /**
+     *
+     * @param questionNumber current question number
+     * @param questionCount all question count
+     */
     private void progressBarUpdate(int questionNumber, int questionCount) {
         progressBar1.setValue(questionNumber-1);
         progressBar1.setMaximum(questionCount);

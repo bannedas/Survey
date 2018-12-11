@@ -1,3 +1,8 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 /**
  * The class RewardPage shows the buttons that grants the user rewards in exchange for points earned.
  *
@@ -5,16 +10,7 @@
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
- *
- * @param owner current owner of instance running
- * @param user  the current user credentials
  */
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-
 public class RewardPage {
     public JPanel rewardPanel;
     private JButton coffeeButton;
@@ -28,7 +24,11 @@ public class RewardPage {
     final private MainFrame owner;
     private String user;
 
-
+    /**
+     *
+     * @param owner current owner of instance running
+     * @param user  the current user credentials
+     */
     public RewardPage(MainFrame owner, String user) {
         this.user = user;
         this.owner = owner;

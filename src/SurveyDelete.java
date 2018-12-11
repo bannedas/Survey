@@ -4,6 +4,14 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ *
+ * The class SurveyDelete allows admin to delete surveys from application
+ *
+ * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Bren&oslash;e Olesen
+ * @version 1.0
+ * @release 19/12/2018
+ */
 public class SurveyDelete {
     public JPanel mainPanel;
     private JButton button1;
@@ -14,6 +22,11 @@ public class SurveyDelete {
 
     final private MainFrame owner;
 
+    /**
+     *
+     * @param listOfFiles File list from survey folder
+     * @throws IOException dealing with input/output, so using exception in case of failure
+     */
     private void renameButtons(File[] listOfFiles) throws IOException {
 
         switch (listOfFiles.length) { //Check if how many surveys there are in the survey folder. max 3
@@ -49,6 +62,10 @@ public class SurveyDelete {
         }
     }
 
+    /**
+     * Creates listOfFiles list from survey folder
+     * @param owner current owner of instance running
+     */
     public SurveyDelete(MainFrame owner) {
         super();
         this.owner = owner;

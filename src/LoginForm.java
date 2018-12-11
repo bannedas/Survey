@@ -1,14 +1,3 @@
-/**
- *
- * LoginForm handles actions on fields and buttons. It also contains LoginForm GUIForm generated code.
- *
- * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
- * @version 1.0
- * @release 19/12/2018
- *
- * @param owner current owner of instance running
- *
- */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,7 +5,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-
+/**
+ *
+ * LoginForm handles actions on fields and buttons. It also contains LoginForm GUIForm generated code.
+ *
+ * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
+ * @version 1.0
+ * @release 19/12/2018
+ */
 public class LoginForm {
     public JPanel panelLogin;
     private JButton loginButton;
@@ -29,6 +25,10 @@ public class LoginForm {
     final private MainFrame owner;
     private String user;
 
+    /**
+     *
+     * @param owner current owner of instance running
+     */
     public LoginForm(MainFrame owner) {
         this.owner = owner;
 
@@ -43,7 +43,7 @@ public class LoginForm {
                 if (username.equals("") || password.equals("")) {
                     JOptionPane.showMessageDialog(panelLogin, "Type in your username and password", "Error", JOptionPane.ERROR_MESSAGE); // error message if no username and/or password found in fields
                 } else {
-                    try { //same as explained in LoginCheck or SignupWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
+                    try { //same as explained in LoginCheck or SignUpWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
                         if (LoginCheck.loginCheck(username, password) == 2) { //calling LoginCheck.class method LoginCheck.
                             SwingUtilities.invokeLater(() -> owner.showView(new AdminPanel(owner).mainPanel));
                         } else if (LoginCheck.loginCheck(username, password) == 1) { //calling LoginCheck.class method LoginCheck.
@@ -87,7 +87,7 @@ public class LoginForm {
                         JOptionPane.showMessageDialog(panelLogin, "Type in your AAu mail and password", "Error", JOptionPane.ERROR_MESSAGE); // error message if no username and/or password found in fields
                         textField1.requestFocus();
                     } else {
-                        try { //same as explained in LoginCheck or SignupWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
+                        try { //same as explained in LoginCheck or SignUpWriter, but we cannot use thorws IOExcetion because only this part writes and not the whole method
                             if (LoginCheck.loginCheck(username, password) == 2) { //calling LoginCheck.class method LoginCheck.
                                 SwingUtilities.invokeLater(() -> owner.showView(new AdminPanel(owner).mainPanel));
                             } else if (LoginCheck.loginCheck(username, password) == 1) { //calling LoginCheck.class method LoginCheck.

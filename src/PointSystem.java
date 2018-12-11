@@ -1,3 +1,6 @@
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 /**
  *
  * PointSystem finds the given username in the database and add the given points to his or her point sum. If a negative integer is given the value is subtracted.
@@ -5,16 +8,15 @@
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
- *
- * @param username  e-mail address given as username by user
- * @param points    how many points are to be given or subtracted
- * @return          True, only False if there are any errors or insufficient points
  */
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 public class PointSystem {
+    /**
+     *
+     * @param username e-mail address given as username by user
+     * @param points how many points are to be given or subtracted
+     * @return True, only False if there are any errors or insufficient points
+     * @throws IOException dealing with input/output, so using exception in case of failure
+     */
     public static boolean pointSystem (String username, int points) throws IOException {
         String database = "database.txt"; //database location (right now in the same folder as an app
         String tempDatabase = "tempdatabase.txt";

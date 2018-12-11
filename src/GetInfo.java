@@ -1,23 +1,22 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 /**
- *
  * GetInfo class with overloaded methods that gets different types of information depending on which version is called.
  *
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
- *
- * @param user      the current user credentials
- * @param info      a string describing which switch case will be used
- * @param surveyID  internal ID of a survey
- * @param question  which line of survey file to get question from
- * @return          dependent of which overloaded method is called.
  */
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-
 public class GetInfo {
+    /**
+     *
+     * @param user the current user credentials
+     * @param info a string describing which switch case will be used
+     * @return returns name/points/username based on input
+     * @throws IOException dealing with input/output, so using exception in case of failure
+     */
     public static String getInfo(String user, String info) throws IOException {
         String[] parts;
         switch (info) {
@@ -33,6 +32,13 @@ public class GetInfo {
         return user;
     }
 
+    /**
+     *
+     * @param surveyID internal ID of a survey
+     * @param info a string describing which switch case will be used
+     * @return returns name/lenght/points/error of user based on input
+     * @throws IOException dealing with input/output, so using exception in case of failure
+     */
     public static String getInfo(int surveyID, String info) throws IOException {
         String[] parts;
         switch (info)   {
@@ -51,11 +57,24 @@ public class GetInfo {
         return "error";
     }
 
+    /**
+     *
+     * @param surveyID internal ID of a survey
+     * @param question which line of survey file to get question from
+     * @return returns parts string array which has
+     * @throws IOException dealing with input/output, so using exception in case of failure
+     */
     public static String[] getInfo(int surveyID, int question) throws IOException {
         String[] parts = readDatabase(surveyID,question);
         return parts;
     }
 
+    /**
+     *
+     * @param user the current user credentials
+     * @return returns user information from database.txt
+     * @throws IOException dealing with input/output, so using exception in case of failure
+     */
     private static String readDatabase(String user) throws IOException {
         String dir = "database.txt"; //database location (right now in the same folder as an app
         FileReader fileReader = new FileReader(dir); //initialize filereader (this one opens files)
@@ -72,6 +91,13 @@ public class GetInfo {
         return user;
     }
 
+    /**
+     *
+     * @param user the current user credentials
+     * @param surveyID internal ID of a survey
+     * @return returns true/false depending if user has completed the survey or not
+     * @throws IOException dealing with input/output, so using exception in case of failure
+     */
     public static Boolean readUserDataBase(String user, int surveyID) throws IOException {
         String dir = "userdatabase/" + user + ".txt"; //database location (right now in the same folder as an app
         File f = new File(dir);
@@ -91,7 +117,14 @@ public class GetInfo {
         return false;
     }
 
-    private static String[] readDatabase(int surveyID, int question) throws IOException { //Reads såecified survey file and returns specified question from that file.
+    /**
+     *
+     * @param surveyID internal ID of a survey
+     * @param question which line of survey file to get question from
+     * @return returns specified question from that file.
+     * @throws IOException dealing with input/output, so using exception in case of failure
+     */
+    private static String[] readDatabase(int surveyID, int question) throws IOException {
         String dir = "survey/"+surveyID; //database location (right now in the survey folder as an app
         FileReader fileReader = new FileReader(dir); //initialize filereader (this one opens files)
         BufferedReader bufferedReader = new BufferedReader(fileReader); //initialize bufferedreader (this one can read files)
@@ -109,6 +142,12 @@ public class GetInfo {
         return parts;
     }
 
+    /**
+     *
+     * @param surveyID internal ID of a survey
+     * @return returns first line in survey file
+     * @throws IOException dealing with input/output, so using exception in case of failure
+     */
     private static String readDatabase(int surveyID) throws IOException {
         String dir = "survey/"+surveyID; //database location (right now in the survey folder as an app
         FileReader fileReader = new FileReader(dir); //initialize filereader (this one opens files)
@@ -116,7 +155,5 @@ public class GetInfo {
         String line = bufferedReader.readLine();
         bufferedReader.close();
         return line; //return first line of specified file
-
     }
-
 }

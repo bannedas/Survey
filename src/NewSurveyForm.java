@@ -1,3 +1,7 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  *
  * The class NewSurveyForm will be where an admin can add a new survey to the list of available surveys.
@@ -5,22 +9,17 @@
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
- *
- * @param owner current owner of instance running
- *
  */
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 public class NewSurveyForm {
 
     final private MainFrame owner;
     public JPanel mainPanel;
     private JButton backButton;
 
+    /**
+     *
+     * @param owner current owner of instance running
+     */
     public NewSurveyForm(MainFrame owner) {
         super();
         this.owner = owner;

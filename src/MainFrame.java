@@ -1,3 +1,5 @@
+import javax.swing.*;
+import java.awt.*;
 /**
  *
  * The MainFrame class, sets the properties of the window that the application is running.
@@ -8,9 +10,6 @@
  *
  * @param panel Jpanel to be shown on GUI
  */
-import javax.swing.*;
-import java.awt.*;
-
 
 public class MainFrame extends JFrame {
     private JPanel viewPanel; //makes panel inside JFrame
@@ -21,11 +20,24 @@ public class MainFrame extends JFrame {
     driver is the one that we will be changing and it is the one that you see when you open app
      */
 
+    /**
+     *  Sets title and calls createGUI method
+     */
     public MainFrame() {
         setTitle("Survey"); //set app title
         createGUI(); //call method createGUI
     }
 
+    /**
+     * Sets a bunch of things:
+     * What to do when X pressed
+     * Application Size
+     * Make it not resizable
+     * Call method center()
+     * Set JPanel layout
+     * Add viewPanel to the frame
+     * Show panelLogin
+     */
     private void createGUI() {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //what to do when X pressed
         setSize(300, 600); //app size
@@ -36,6 +48,14 @@ public class MainFrame extends JFrame {
         showView(new LoginForm(this).panelLogin); //call method showView
     }
 
+    /**
+     *
+     * @param panel new panel name
+     * Removes all panels
+     * Adds new Panel in the center
+     * Revalidate new panel
+     * Repaints (starts displaying)
+     */
     public void showView(JPanel panel) {
         viewPanel.removeAll(); //Remove all panels.
         viewPanel.add(panel, BorderLayout.CENTER); //Adds panel that is called ex. showView(loginPanel).
@@ -43,6 +63,11 @@ public class MainFrame extends JFrame {
         viewPanel.repaint(); //Paints the new panel on the screen.
     }
 
+    /**
+     * Gets screen size
+     * Assigns width and height to w,h
+     * Divides w/h by 2 and sets center of the screen
+     */
     public void center() {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); //Gets the screen resolution.
         int w = getSize().width; //Assigns the resolution to w and h.

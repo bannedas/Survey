@@ -13,10 +13,6 @@ import java.io.IOException;
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
- *
- * @param owner     current owner of instance running
- * @param surveyID  internal ID of a survey
- * @return displays question result menu
  */
 
 public class ViewResultsQuestions {
@@ -32,6 +28,11 @@ public class ViewResultsQuestions {
     String[] answer2 = new String[3];
     String[] answer3 = new String[3];
 
+    /**
+     *
+     * @param surveyID internal ID of a survey
+     * @throws IOException dealing with input/output, so using exception in case of failure
+     */
     private void renameButtons(String surveyID) throws IOException {
         String dir = "survey/" + surveyID; //database location (right now in the same folder as an app
 
@@ -59,6 +60,11 @@ public class ViewResultsQuestions {
         button3.setText(question[2]);
     }
 
+    /**
+     *
+     * @param owner current owner of instance running
+     * @param surveyID internal ID of a survey
+     */
     public ViewResultsQuestions(MainFrame owner, int surveyID) {
         super();
         this.owner = owner;

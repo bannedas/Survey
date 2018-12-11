@@ -1,3 +1,7 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  *
  * AdminPanel is shown when an admin is logged in. Presented with options available only to the administrator.
@@ -5,15 +9,7 @@
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
- *
- * @param owner owner of current instance running
  */
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 public class AdminPanel {
     public JPanel mainPanel;
     private JButton logoutButton;
@@ -27,6 +23,10 @@ public class AdminPanel {
 
     final private MainFrame owner;
 
+    /**
+     *
+     * @param owner owner of current instance running
+     */
     public AdminPanel(MainFrame owner) {
         super();
         this.owner = owner;

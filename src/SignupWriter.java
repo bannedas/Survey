@@ -1,3 +1,4 @@
+import java.io.*;
 /**
  *
  * SignUpWriter gets all the information given by the user when signing up for an account and saves it to the database.
@@ -5,16 +6,17 @@
  * @author Madeleine Blomberg, Simon Houlberg, Kedisha Charles, Paulius Astrauskas, Anders Brenøe Olesen
  * @version 1.0
  * @release 19/12/2018
- *
- * @param username  e-mail address given as username by user
- * @param password  password given in password field by user
- * @param name      name given by user at sign-up
- * @param gender    the given gender of the user
- * @return          True
  */
-import java.io.*;
-
-public class SignupWriter {
+public class SignUpWriter {
+    /**
+     *
+     * @param username e-mail address given as username by user
+     * @param password password given in password field by user
+     * @param name name given by user at sign-up
+     * @param gender the given gender of the user
+     * @return true
+     * @throws IOException dealing with input/output, so using exception in case of failure
+     */
     public static boolean signupWriter(String username, String password, String name, String gender) throws IOException {
         /* IOException = unexpected cases when writing/reading files
         it is required by JAVA and this is the best explanation i found on google:
