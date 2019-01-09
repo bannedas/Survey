@@ -17,7 +17,7 @@ public class SignUpWriter {
      * @return true
      * @throws IOException dealing with input/output, so using exception in case of failure
      */
-    public static boolean signupWriter(String username, String password, String name, String gender) throws IOException {
+    public static boolean SignUpWriter(String username, String password, String name, String gender) throws IOException {
         /* IOException = unexpected cases when writing/reading files
         it is required by JAVA and this is the best explanation i found on google:
         (throws IOException) specifies that the method may going to throws IOException and insist

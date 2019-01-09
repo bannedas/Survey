@@ -56,7 +56,7 @@ public class SignUpPage {
                                     if (LoginCheck.loginCheck(username, password) == 1) { //calling LoginCheck.class method LoginCheck. (checking all database lines if username exists
                                         JOptionPane.showMessageDialog(panelSignUp, "An account already exists with this email!", "Error", JOptionPane.ERROR_MESSAGE); // error message
                                     } else {
-                                        if (SignUpWriter.signupWriter(username, password, firstName, gender)) { //call class SignUpWriter, method SignUpWriter
+                                        if (SignUpWriter.SignUpWriter(username, password, firstName, gender)) { //call class SignUpWriter, method SignUpWriter
                                             JOptionPane.showMessageDialog(panelSignUp, "Welcome " + username + "!\nYou can Login now", "Sign Up", JOptionPane.INFORMATION_MESSAGE); //if return true popup
                                             SwingUtilities.invokeLater(() -> owner.showView(new LoginForm(owner).panelLogin));
                                         }
